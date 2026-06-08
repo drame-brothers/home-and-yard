@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Cleaning Estimate — Drame Brothers Home & Yard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+       :root {
+        --olive: #3d4228;
+        --olive-md: #585c3c;
+        --olive-lt: #7a7e5a;
+        --cream: #f2ead8;
+        --cream-dk: #e4d9c0;
+        --gold: #c8b560;
+        --gold-lt: #f0e9cc;
+        --white: #ffffff;
+        --off: #f5f0e6;
+        --border: #d4c99a;
+        --border-lt: #e8e2cc;
+        --muted: #8a8568;
+        --text: #2a2c1a;
+        --red: #8b2e1e;
+        --r: 4px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'DM Sans', sans-serif;
+        background: var(--off);
+        color: var(--text);
+        font-size: 15px;
+        line-height: 1.6;
+        min-height: 100vh;
+        padding: 0 0 40px;
+      }
+      /* ── Header ─────────────────────────────────────── */
+
+      .header {
+        background: var(--olive);
+        padding: 36px 24px 30px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 80% 0%, rgba(200, 181, 96, 0.15) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .header h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 32px;
+        font-weight: 400;
+        color: var(--cream);
+        margin-bottom: 6px;
+        position: relative;
+        letter-spacing: 0.01em;
+      }
+
+      .header p {
+        font-size: 13px;
+        color: rgba(242, 234, 216, 0.65);
+        position: relative;
+        font-weight: 300;
+      }
+
+      .phone-line {
+        margin-top: 14px;
+        font-size: 13px;
+        color: var(--gold);
+        position: relative;
+      }
+
+      .phone-line a {
+        color: var(--gold);
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .phone-line a:hover {
+        text-decoration: underline;
+      }
+      /* ── Wrapper ─────────────────────────────────────── */
+
+      .wrap {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+      /* ── Card ────────────────────────────────────────── */
+
+      .card {
+        background: var(--white);
+        border: 1px solid var(--border-lt);
+        border-top: none;
+        padding: 22px 24px;
+      }
+
+      .card:first-of-type {
+        border-top: 1px solid var(--border-lt);
+        margin-top: 20px;
+        border-radius: var(--r) var(--r) 0 0;
+      }
+
+      .card:last-of-type {
+        border-radius: 0 0 var(--r) var(--r);
+      }
+
+      .card-label {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--olive-lt);
+        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .card-label::after {
+        content: '';
+        flex: 1;
+        height: 1px;
+        background: var(--border-lt);
+      }
+      /* ── Fields ──────────────────────────────────────── */
+
+      .field {
+        margin-bottom: 14px;
+      }
+
+      .field:last-child {
+        margin-bottom: 0;
+      }
+
+      .field>label,
+      .fl {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+
+      .sublabel {
+        font-size: 11px;
+        color: var(--muted);
+        margin-bottom: 6px;
+        display: block;
+      }
+
+      select,
+      input[type="text"],
+      input[type="email"],
+      input[type="tel"],
+      input[type="number"],
+      textarea {
+        width: 100%;
+        padding: 10px 13px;
+        border: 1.5px solid var(--border-lt);
+        border-radius: var(--r);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 14px;
+        color: var(--text);
+        background: var(--white);
+        transition: border-color 0.15s, box-shadow 0.15s;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+
+      select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%238a8568' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 12px center;
+        padding-right: 36px;
+      }
+
+      select:focus,
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(200, 181, 96, 0.15);
+      }
+
+      select.err,
+      input.err,
+      textarea.err {
+        border-color: var(--red);
+      }
+
+      .field-error {
+        font-size: 12px;
+        color: var(--red);
+        margin-top: 4px;
+      }
+      /* ── Room grid ────────────────────────────────────── */
+
+      .room-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+
+      .room-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 9px 12px;
+        background: var(--off);
+        border: 1.5px solid var(--border-lt);
+        border-radius: var(--r);
+        gap: 8px;
+      }
+
+      .room-row .rl {
+        font-size: 13px;
+        font-weight: 400;
+        color: var(--text);
+        flex: 1;
+      }
+
+      .room-row .rl small {
+        font-size: 11px;
+        color: var(--muted);
+        display: block;
+      }
+
+      .room-row input[type="number"] {
+        width: 60px;
+        padding: 5px 8px;
+        text-align: center;
+        border-radius: var(--r);
+        font-size: 14px;
+        font-weight: 500;
+        border: 1.5px solid var(--border-lt);
+        background: white;
+        flex-shrink: 0;
+      }
+
+      .room-row input[type="number"]:focus {
+        border-color: var(--gold);
+        box-shadow: 0 0 0 3px rgba(200, 181, 96, 0.15);
+      }
+      /* ── Radio / check options ────────────────────────── */
+
+      .opt-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .opt-group.row {
+        flex-direction: row;
+      }
+
+      .opt {
+        display: flex;
+        align-items: flex-start;
+        gap: 11px;
+        padding: 11px 14px;
+        border: 1.5px solid var(--border-lt);
+        border-radius: var(--r);
+        cursor: pointer;
+        transition: border-color 0.15s, background 0.15s;
+        user-select: none;
+      }
+
+      .opt:hover {
+        border-color: var(--gold);
+        background: var(--gold-lt);
+      }
+
+      .opt.on {
+        border-color: var(--gold);
+        background: var(--gold-lt);
+      }
+
+      .opt input[type="radio"],
+      .opt input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        flex-shrink: 0;
+        accent-color: var(--olive);
+        cursor: pointer;
+        border: none;
+        box-shadow: none;
+        padding: 0;
+      }
+
+      .opt input[type="radio"]:focus,
+      .opt input[type="checkbox"]:focus {
+        box-shadow: none;
+        outline: none;
+      }
+
+      .opt-body {
+        flex: 1;
+      }
+
+      .opt-title {
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.3;
+      }
+
+      .opt-desc {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 1px;
+      }
+
+      .opt-price {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--olive-lt);
+        margin-left: auto;
+        align-self: center;
+        flex-shrink: 0;
+      }
+      /* ── Appt rows ─────────────────────────────────────── */
+
+      .appt-set {
+        margin-bottom: 16px;
+      }
+
+      .appt-set-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--olive);
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .appt-set-label .opt-tag {
+        font-size: 10px;
+        font-weight: 400;
+        color: var(--muted);
+        background: var(--off);
+        border: 1px solid var(--border-lt);
+        border-radius: 10px;
+        padding: 1px 7px;
+      }
+
+      .appt-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+      }
+      /* ── Price display ─────────────────────────────────── */
+
+      .price-card {
+        background: var(--olive);
+        border: none;
+        padding: 32px 24px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .price-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 80% 10%, rgba(200, 181, 96, 0.2), transparent 60%);
+        pointer-events: none;
+      }
+
+      .price-eyebrow {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(242, 234, 216, 0.5);
+        margin-bottom: 10px;
+        position: relative;
+      }
+
+      .price-value {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 60px;
+        font-weight: 400;
+        color: var(--cream);
+        letter-spacing: -1px;
+        line-height: 1;
+        margin-bottom: 8px;
+        position: relative;
+      }
+
+      .price-value.pop {
+        animation: pop 0.25s ease;
+      }
+
+      @keyframes pop {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.04);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .price-disclaimer {
+        font-size: 11px;
+        color: rgba(242, 234, 216, 0.4);
+        line-height: 1.7;
+        max-width: 400px;
+        margin: 0 auto;
+        position: relative;
+      }
+      /* ── Book toggle ────────────────────────────────────── */
+
+      .book-card {
+        background: var(--white);
+        border: 2px solid var(--gold);
+        border-radius: var(--r);
+        margin-top: 16px;
+        overflow: hidden;
+      }
+
+      .book-trigger {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 18px 22px;
+        cursor: pointer;
+        transition: background 0.15s;
+        user-select: none;
+      }
+
+      .book-trigger:hover {
+        background: var(--gold-lt);
+      }
+
+      .book-trigger input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        accent-color: var(--olive);
+        flex-shrink: 0;
+        cursor: pointer;
+        border: none;
+        padding: 0;
+        box-shadow: none;
+      }
+
+      .book-trigger input:focus {
+        box-shadow: none;
+      }
+
+      .book-text .bt-title {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--olive);
+      }
+
+      .book-text .bt-sub {
+        font-size: 12px;
+        color: var(--muted);
+      }
+      /* ── Phase 2 ─────────────────────────────────────────── */
+
+      .phase2 {
+        display: none;
+      }
+
+      .phase2.open {
+        display: block;
+      }
+      /* ── Submit btn (hidden until booking checked) ────────── */
+
+      .btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--olive);
+        color: var(--cream);
+        font-family: 'DM Sans', sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        border: none;
+        border-radius: var(--r);
+        cursor: pointer;
+        transition: background 0.15s, transform 0.1s;
+        letter-spacing: 0.02em;
+      }
+
+      .btn:hover:not(:disabled) {
+        background: var(--olive-md);
+      }
+
+      .btn:active:not(:disabled) {
+        transform: scale(0.99);
+      }
+
+      .btn:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      #submit-card {
+        display: none;
+      }
+
+      #submit-card.show {
+        display: block;
+      }
+      /* ── Success screen ──────────────────────────────────── */
+
+      #success {
+        display: none;
+        max-width: 580px;
+        margin: 32px auto;
+        padding: 0 16px;
+      }
+
+      #success.show {
+        display: block;
+      }
+
+      .success-inner {
+        background: var(--white);
+        border: 1px solid var(--border-lt);
+        border-radius: var(--r);
+        padding: 48px 36px;
+        text-align: center;
+      }
+
+      .success-icon {
+        width: 64px;
+        height: 64px;
+        background: var(--gold-lt);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 28px;
+      }
+
+      .success-inner h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 30px;
+        font-weight: 400;
+        color: var(--olive);
+        margin-bottom: 8px;
+      }
+
+      .success-inner .ss-sub {
+        font-size: 14px;
+        color: var(--muted);
+        margin-bottom: 20px;
+      }
+
+      .success-price {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 52px;
+        font-weight: 400;
+        color: var(--olive-md);
+        margin: 16px 0;
+      }
+
+      .success-detail {
+        font-size: 13px;
+        color: var(--text);
+        background: var(--off);
+        border-radius: var(--r);
+        padding: 12px 16px;
+        margin: 16px 0;
+        line-height: 1.7;
+        border: 1px solid var(--border-lt);
+      }
+
+      .success-note {
+        font-size: 12px;
+        color: var(--muted);
+        font-style: italic;
+        line-height: 1.7;
+        margin-top: 20px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border-lt);
+      }
+      /* ── Two-col ──────────────────────────────────────────── */
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      /* ── Responsive ───────────────────────────────────────── */
+
+      @media (max-width: 500px) {
+        .room-grid {
+          grid-template-columns: 1fr;
+        }
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+        .opt-group.row {
+          flex-direction: column;
+        }
+        .price-value {
+          font-size: 44px;
+        }
+        .appt-cols {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <!-- ── Topbar ─────────────────────────────────────── -->
+    <header>
+      <div class="topbar">
+        <a href="index.html" class="topbar-logo">Drame Brothers Home &amp; Yard</a>
+        <a href="index.html" class="topbar-back">← Back to Home</a>
+      </div>
+      <div class="page-hero">
+        <h1>Home Cleaning Estimate</h1>
+        <p>Fill out the form below for an instant estimate. No commitment required.</p>
+        <div class="phone-line">Rather talk to a person? Call <a href="tel:9292742102">929-274-2102</a>.</div>
+      </div>
+    </header>
+
+    <!-- ── FORM ──────────────────────────────────────────── -->
+    <div class="wrap" id="form-wrap">
+
+      <!-- Service Type -->
+      <div class="card" style="border-radius:var(--r) var(--r) 0 0; border-top:1px solid var(--border-lt); margin-top:20px;">
+        <div class="card-label">Service Type</div>
+        <div class="field">
+          <label for="service_type">What type of service are you looking for?</label>
+          <select id="service_type">
+        <option value="">Select a service type…</option>
+        <option value="First-Time Cleaning (automatically treated as Deep Clean)">First-Time Cleaning (automatically treated as Deep Clean)</option>
+        <option value="One-Time Deep Clean">One-Time Deep Clean</option>
+        <option value="Weekly Service">Weekly Service</option>
+        <option value="Biweekly Service">Biweekly Service</option>
+        <option value="Monthly Service">Monthly Service</option>
+      </select>
+        </div>
+      </div>
+
+      <!-- Scope -->
+      <div class="card">
+        <div class="card-label">Cleaning Scope</div>
+        <div class="field">
+          <label class="fl">Will we be cleaning your whole home or specific rooms?</label>
+          <div class="opt-group">
+            <label class="opt" data-group="cleaning_scope">
+          <input type="radio" name="cleaning_scope" value="Whole Home">
+          <div class="opt-body">
+            <div class="opt-title">Whole Home</div>
+            <div class="opt-desc">All rooms, hallways, and common areas</div>
+          </div>
+        </label>
+            <label class="opt" data-group="cleaning_scope">
+          <input type="radio" name="cleaning_scope" value="Partial Home">
+          <div class="opt-body">
+            <div class="opt-title">Partial Home</div>
+            <div class="opt-desc">Specific rooms only — enter counts below</div>
+          </div>
+        </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rooms -->
+      <div class="card">
+        <div class="card-label">Rooms to Be Cleaned</div>
+        <p class="sublabel" style="margin-bottom:14px;">Enter the number of each room. Leave at 0 if not included.</p>
+        <div class="room-grid">
+          <div class="room-row">
+            <div class="rl">Bedrooms</div><input type="number" id="bedroom" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Dining Rooms</div><input type="number" id="dining_room" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Full Bathrooms</div><input type="number" id="full_bathroom" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Basement</div><input type="number" id="basement" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Half Bathrooms</div><input type="number" id="half_bathroom" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Other Rooms <small>office, studio, mudroom…</small></div><input type="number" id="other_room" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Kitchen</div><input type="number" id="kitchen" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Closets</div><input type="number" id="closet" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Living Rooms</div><input type="number" id="living_room" min="0" value="0"></div>
+          <div class="room-row">
+            <div class="rl">Hallways / Stairwells</div><input type="number" id="hallway" min="0" value="0"></div>
+        </div>
+      </div>
+
+      <!-- Home Info -->
+      <div class="card">
+        <div class="card-label">About Your Home</div>
+        <div class="field">
+          <label for="residents">Number of residents (including yourself)</label>
+          <input type="number" id="residents" min="1" placeholder="e.g. 2" style="max-width:140px;">
+        </div>
+        <div class="field">
+          <label class="fl">Pets in the home?</label>
+          <div class="opt-group row">
+            <label class="opt" data-group="pets" style="flex:1;">
+          <input type="radio" name="pets" value="Yes">
+          <div class="opt-body"><div class="opt-title">Yes</div></div>
+        </label>
+            <label class="opt" data-group="pets" style="flex:1;">
+          <input type="radio" name="pets" value="No">
+          <div class="opt-body"><div class="opt-title">No</div></div>
+        </label>
+          </div>
+        </div>
+        <div class="field">
+          <label class="fl">Home condition</label>
+          <div class="opt-group">
+            <label class="opt" data-group="condition">
+          <input type="radio" name="condition" value="Light">
+          <div class="opt-body">
+            <div class="opt-title">Light</div>
+            <div class="opt-desc">Recently cleaned and generally maintained</div>
+          </div>
+        </label>
+            <label class="opt" data-group="condition">
+          <input type="radio" name="condition" value="Average">
+          <div class="opt-body">
+            <div class="opt-title">Average</div>
+            <div class="opt-desc">Typical lived-in condition</div>
+          </div>
+        </label>
+            <label class="opt" data-group="condition">
+          <input type="radio" name="condition" value="Heavy">
+          <div class="opt-body">
+            <div class="opt-title">Heavy</div>
+            <div class="opt-desc">Significant buildup, heavy use, pet hair, soap scum, grease, etc.</div>
+          </div>
+        </label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-Ons -->
+      <div class="card">
+        <div class="card-label">Optional Add-Ons</div>
+        <div class="opt-group">
+          <label class="opt"><input type="checkbox" id="add_fridge"><div class="opt-body"><div class="opt-title">Inside refrigerator cleaning</div></div><div class="opt-price">+$25</div></label>
+          <label class="opt"><input type="checkbox" id="add_oven"><div class="opt-body"><div class="opt-title">Inside oven cleaning</div></div><div class="opt-price">+$35</div></label>
+          <label class="opt"><input type="checkbox" id="add_cabinets"><div class="opt-body"><div class="opt-title">Inside cabinet cleaning</div></div><div class="opt-price">+$40</div></label>
+          <label class="opt"><input type="checkbox" id="add_dishes"><div class="opt-body"><div class="opt-title">Dish washing</div></div><div class="opt-price">+$20</div></label>
+        </div>
+      </div>
+
+      <!-- Price Display -->
+      <div class="card price-card">
+        <div class="price-eyebrow">Your Estimated Price</div>
+        <div class="price-value" id="price-display">$—</div>
+        <div class="price-disclaimer">This estimate is based on the information provided. Final pricing may be adjusted after reviewing your home's condition and scope of work. Any changes will be discussed with you before work begins.</div>
+      </div>
+
+      <!-- Book Toggle -->
+      <div class="book-card">
+        <label class="book-trigger">
+      <input type="checkbox" id="ready_to_book">
+      <div class="book-text">
+        <div class="bt-title">Ready to schedule? Check here to request a booking.</div>
+        <div class="bt-sub">We'll ask for your contact details and preferred appointment times.</div>
+      </div>
+    </label>
+      </div>
+
+      <!-- ── PHASE 2 ─────────────────────────── -->
+      <div class="phase2" id="phase2">
+
+        <!-- Contact Info -->
+        <div class="card" style="margin-top:16px; border-radius:var(--r) var(--r) 0 0; border-top:1px solid var(--border-lt);">
+          <div class="card-label">Your Contact Information</div>
+          <div class="two-col">
+            <div class="field">
+              <label for="client_name">Full Name <span style="color:var(--red)">*</span></label>
+              <input type="text" id="client_name" placeholder="First and last name">
+            </div>
+            <div class="field">
+              <label for="phone">Phone Number <span style="color:var(--red)">*</span></label>
+              <input type="tel" id="phone" placeholder="(555) 555-5555">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email Address <span style="color:var(--red)">*</span></label>
+            <input type="email" id="email" placeholder="your@email.com">
+            <span class="sublabel">We'll send your confirmation here.</span>
+          </div>
+          <div class="field">
+            <label for="address">Home Address <span style="color:var(--red)">*</span></label>
+            <input type="text" id="address" placeholder="Street address, City, State, ZIP">
+          </div>
+        </div>
+
+        <!-- Products -->
+        <div class="card">
+          <div class="card-label">Cleaning Products</div>
+          <div class="field">
+            <label class="fl">Do you have a product preference?</label>
+            <span class="sublabel">This has no impact on pricing.</span>
+            <div class="opt-group">
+              <label class="opt" data-group="product_preference"><input type="radio" name="product_preference" value="Please use our products"><div class="opt-body"><div class="opt-title">Please use our products</div></div></label>
+              <label class="opt" data-group="product_preference"><input type="radio" name="product_preference" value="Please use your products"><div class="opt-body"><div class="opt-title">Please use your products</div></div></label>
+              <label class="opt" data-group="product_preference"><input type="radio" name="product_preference" value="No preference"><div class="opt-body"><div class="opt-title">No preference</div></div></label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scheduling -->
+        <div class="card">
+          <div class="card-label">Preferred Appointment Times</div>
+          <p class="sublabel" style="margin-bottom:16px;">Provide up to three preferred windows. We'll confirm availability and reach out within 1 business day.</p>
+          <div class="appt-set">
+            <div class="appt-set-label">First choice</div>
+            <div class="appt-cols">
+              <select id="appt1_day"><option value="">Day…</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+              <select id="appt1_time"><option value="">Time…</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–7pm)</option></select>
+            </div>
+          </div>
+          <div class="appt-set">
+            <div class="appt-set-label">Second choice <span class="opt-tag">optional</span></div>
+            <div class="appt-cols">
+              <select id="appt2_day"><option value="">Day…</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+              <select id="appt2_time"><option value="">Time…</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–7pm)</option></select>
+            </div>
+          </div>
+          <div class="appt-set">
+            <div class="appt-set-label">Third choice <span class="opt-tag">optional</span></div>
+            <div class="appt-cols">
+              <select id="appt3_day"><option value="">Day…</option><option>Monday</option><option>Tuesday</option><option>Wednesday</option><option>Thursday</option><option>Friday</option><option>Saturday</option><option>Sunday</option></select>
+              <select id="appt3_time"><option value="">Time…</option><option>Morning (8am–12pm)</option><option>Afternoon (12pm–4pm)</option><option>Evening (4pm–7pm)</option></select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Notes -->
+        <div class="card">
+          <div class="card-label">Additional Notes</div>
+          <div class="field">
+            <textarea id="notes" rows="4" placeholder="Areas of concern, special requests, pet details, access instructions, or anything else we should know before the visit."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit — hidden until booking checked -->
+      <div class="card" id="submit-card">
+        <button class="btn" id="submit-btn" onclick="submitForm()">Request Booking →</button>
+      </div>
+
+    </div>
+    <!-- /form-wrap -->
+
+    <!-- ── SUCCESS SCREEN ─────────────────────────── -->
+    <div id="success">
+      <div class="success-inner">
+        <div class="success-icon">✓</div>
+        <h2 id="s-heading">Estimate submitted!</h2>
+        <p class="ss-sub" id="s-sub">Here's a summary of your request.</p>
+        <div class="success-price" id="s-price"></div>
+        <div class="success-detail" id="s-detail"></div>
+        <div class="success-note" id="s-note"></div>
+      </div>
+    </div>
+
+    <script>
+      // ── CONFIGURATION ─────────────────────────────────────────────
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhKr3w3NbEFbo6jYC4THZmIJpQnEf6mtl8Vx3ExbOZs85F_aLO1NZDp37RNFb2H_EWdQ/exec';
+
+      // ── Helpers ───────────────────────────────────────────────────
+      function gv(id) {
+        var e = document.getElementById(id);
+        return e ? e.value.trim() : '';
+      }
+
+      function gn(id) {
+        return parseFloat(gv(id)) || 0;
+      }
+
+      function gr(nm) {
+        var e = document.querySelector('input[name="' + nm + '"]:checked');
+        return e ? e.value : '';
+      }
+
+      function gc(id) {
+        var e = document.getElementById(id);
+        return e && e.checked;
+      }
+
+      // ── Pricing ───────────────────────────────────────────────────
+      function calcPrice() {
+        var pts =
+          gn('bedroom') * 1.0 +
+          gn('full_bathroom') * 2.0 +
+          gn('half_bathroom') * 1.0 +
+          gn('kitchen') * 3.0 +
+          gn('living_room') * 2.0 +
+          gn('dining_room') * 1.0 +
+          gn('basement') * 1.5 +
+          gn('other_room') * 1.0 +
+          gn('closet') * 0.25 +
+          gn('hallway') * 0.5;
+
+        if (pts === 0) return null;
+
+        var base = pts * 35;
+        var scope = gr('cleaning_scope');
+        var svc = gv('service_type');
+        var cond = gr('condition');
+        var res = gn('residents');
+
+        var adj =
+          (scope === 'Whole Home' ? 0.10 : 0) +
+          (res >= 7 ? 0.30 : res >= 5 ? 0.20 : res >= 3 ? 0.10 : 0) +
+          (cond === 'Heavy' ? 0.20 : cond === 'Light' ? -0.10 : 0);
+
+        var price = base * (1 + adj);
+
+        var deep = svc === 'First-Time Cleaning (automatically treated as Deep Clean)' ||
+          svc === 'One-Time Deep Clean';
+        price *= deep ? 1.5 : 1.0;
+
+        var disc = svc === 'Weekly Service' ? 0.85 :
+          svc === 'Biweekly Service' ? 0.90 :
+          svc === 'Monthly Service' ? 0.95 : 1.0;
+        price *= disc;
+
+        if (gr('pets') === 'Yes') price += 20;
+        if (gc('add_fridge')) price += 25;
+        if (gc('add_oven')) price += 35;
+        if (gc('add_cabinets')) price += 40;
+        if (gc('add_dishes')) price += 20;
+
+        return Math.round(price * 100) / 100;
+      }
+
+      function updatePrice() {
+        var p = calcPrice();
+        var el = document.getElementById('price-display');
+        var was = el.textContent;
+        var now = p !== null ? '$' + p.toFixed(2) : '$—';
+        el.textContent = now;
+        if (now !== was && p !== null) {
+          el.classList.remove('pop');
+          void el.offsetWidth;
+          el.classList.add('pop');
+        }
+      }
+
+      // ── Event wiring ──────────────────────────────────────────────
+      ['bedroom', 'full_bathroom', 'half_bathroom', 'kitchen', 'living_room',
+        'dining_room', 'basement', 'other_room', 'closet', 'hallway',
+        'residents', 'service_type', 'add_fridge', 'add_oven', 'add_cabinets', 'add_dishes'
+      ].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) {
+          el.addEventListener('change', updatePrice);
+          el.addEventListener('input', updatePrice);
+        }
+      });
+
+      document.querySelectorAll('input[name]').forEach(function(r) {
+        r.addEventListener('change', updatePrice);
+      });
+
+      // Radio/checkbox visual feedback
+      document.querySelectorAll('.opt').forEach(function(opt) {
+        opt.addEventListener('click', function() {
+          var inp = opt.querySelector('input');
+          if (!inp) return;
+          if (inp.type === 'radio') {
+            var grp = opt.dataset.group;
+            document.querySelectorAll('[data-group="' + grp + '"]').forEach(function(o) {
+              o.classList.remove('on');
+            });
+            opt.classList.add('on');
+          } else {
+            opt.classList.toggle('on', inp.checked);
+          }
+        });
+      });
+
+      // Phase 2 + submit button toggle
+      document.getElementById('ready_to_book').addEventListener('change', function() {
+        var p2 = document.getElementById('phase2');
+        var sc = document.getElementById('submit-card');
+        if (this.checked) {
+          p2.classList.add('open');
+          sc.classList.add('show');
+        } else {
+          p2.classList.remove('open');
+          sc.classList.remove('show');
+        }
+      });
+
+      // ── Validation ────────────────────────────────────────────────
+      function validate() {
+        document.querySelectorAll('.field-error').forEach(function(e) {
+          e.remove();
+        });
+        document.querySelectorAll('.err').forEach(function(e) {
+          e.classList.remove('err');
+        });
+        var ok = true;
+        var req = ['service_type', 'client_name', 'phone', 'email', 'address'];
+        req.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el && !el.value.trim()) {
+            el.classList.add('err');
+            var msg = document.createElement('div');
+            msg.className = 'field-error';
+            msg.textContent = 'This field is required.';
+            el.parentNode.insertBefore(msg, el.nextSibling);
+            ok = false;
+          }
+        });
+        return ok;
+      }
+
+      // ── Submit ────────────────────────────────────────────────────
+      function submitForm() {
+        if (!validate()) {
+          return;
+        }
+        var btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Submitting…';
+
+        var price = calcPrice() || 0;
+
+        var data = {
+          submissionDate: new Date().toLocaleString(),
+          serviceType: gv('service_type'),
+          cleaningScope: gr('cleaning_scope'),
+          bedrooms: gn('bedroom'),
+          fullBathrooms: gn('full_bathroom'),
+          halfBathrooms: gn('half_bathroom'),
+          kitchen: gn('kitchen'),
+          livingRoom: gn('living_room'),
+          diningRoom: gn('dining_room'),
+          basement: gn('basement'),
+          otherRoom: gn('other_room'),
+          closet: gn('closet'),
+          hallway: gn('hallway'),
+          residents: gn('residents'),
+          pets: gr('pets'),
+          condition: gr('condition'),
+          addFridge: gc('add_fridge') ? 'Yes' : 'No',
+          addOven: gc('add_oven') ? 'Yes' : 'No',
+          addCabinets: gc('add_cabinets') ? 'Yes' : 'No',
+          addDishes: gc('add_dishes') ? 'Yes' : 'No',
+          estimatedPrice: price.toFixed(2),
+          readyToBook: 'Yes',
+          clientName: gv('client_name'),
+          phone: gv('phone'),
+          email: gv('email'),
+          address: gv('address'),
+          productPreference: gr('product_preference'),
+          appt1Day: gv('appt1_day'),
+          appt1Time: gv('appt1_time'),
+          appt2Day: gv('appt2_day'),
+          appt2Time: gv('appt2_time'),
+          appt3Day: gv('appt3_day'),
+          appt3Time: gv('appt3_time'),
+          notes: gv('notes')
+        };
+
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).catch(function() {}).finally(function() {
+          showSuccess(data, price);
+        });
+      }
+
+      function showSuccess(data, price) {
+        document.getElementById('form-wrap').style.display = 'none';
+        var s = document.getElementById('success');
+        s.classList.add('show');
+        document.getElementById('s-price').textContent = '$' + parseFloat(price).toFixed(2);
+        var svcShort = data.serviceType.split('(')[0].trim();
+        document.getElementById('s-heading').textContent = 'Booking request received!';
+        document.getElementById('s-sub').textContent = 'We\'ll be in touch within 1 business day to confirm your appointment.';
+        document.getElementById('s-detail').innerHTML =
+          '<strong>' + svcShort + '</strong>' +
+          (data.cleaningScope ? ' &nbsp;·&nbsp; ' + data.cleaningScope : '') +
+          (data.clientName ? '<br>' + data.clientName : '') +
+          (data.email ? '<br>' + data.email : '');
+        document.getElementById('s-note').textContent =
+          'A confirmation has been sent to ' + data.email + '. ' +
+          'This estimate is based on the information you provided and may be adjusted after reviewing your home — any changes will be discussed before work begins.';
+      }
+    </script>
+  </body>
+
+</html>

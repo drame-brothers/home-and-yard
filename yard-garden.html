@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yard & Garden Maintenance — Drame Brothers Home & Yard</title>
+    <meta name="description" content="Yard and garden maintenance services in West Philadelphia. Get in touch for a customized estimate.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+    <!-- ── Topbar ─────────────────────────────────────── -->
+    <header>
+      <div class="topbar">
+        <a href="index.html" class="topbar-logo">Drame Brothers Home &amp; Yard</a>
+        <a href="index.html" class="topbar-back">← Back to Home</a>
+      </div>
+      <div class="page-hero">
+        <h1>Yard &amp; Garden Maintenance</h1>
+        <p>Lawns, gardens, landscaping, and outdoor upkeep — tell us about your space.</p>
+        <div class="phone-line">Prefer to talk? Call <a href="tel:9292742102">929-274-2102</a>.</div>
+      </div>
+    </header>
+
+    <!-- ── Inquiry form ───────────────────────────────── -->
+    <div class="inquiry-wrap">
+
+      <div id="inquiry-form">
+        <div class="inquiry-card">
+          <h2>Get in Touch</h2>
+          <p class="sub">We're building out a full estimate tool for this service. In the meantime, share a few details and we'll follow up with a quote within 1 business day.</p>
+
+          <div class="coming-soon-note">
+            ✦ Full online estimate coming soon. For now, we'll reach out personally based on what you share below.
+          </div>
+
+          <div class="two-col">
+            <div class="ifield">
+              <label for="client_name">Full Name <span style="color:var(--red)">*</span></label>
+              <input type="text" id="client_name" placeholder="First and last name">
+            </div>
+            <div class="ifield">
+              <label for="phone">Phone Number <span style="color:var(--red)">*</span></label>
+              <input type="tel" id="phone" placeholder="(555) 555-5555">
+            </div>
+          </div>
+
+          <div class="ifield">
+            <label for="email">Email Address <span style="color:var(--red)">*</span></label>
+            <input type="email" id="email" placeholder="your@email.com">
+          </div>
+
+          <div class="ifield">
+            <label for="address">Property Address <span style="color:var(--red)">*</span></label>
+            <input type="text" id="address" placeholder="Street address, City, State, ZIP">
+          </div>
+
+          <div class="ifield">
+            <label for="property_type">Type of Property</label>
+            <select id="property_type">
+          <option value="">Select a property type…</option>
+          <option>House with yard</option>
+          <option>Row home / townhouse</option>
+          <option>Apartment with outdoor space</option>
+          <option>Small commercial property</option>
+          <option>Community garden or shared space</option>
+          <option>Other</option>
+        </select>
+          </div>
+
+          <div class="ifield">
+            <label for="frequency">How often would you need service?</label>
+            <select id="frequency">
+          <option value="">Select frequency…</option>
+          <option>One-time / Seasonal cleanup</option>
+          <option>Weekly</option>
+          <option>Biweekly</option>
+          <option>Monthly</option>
+          <option>Not sure yet</option>
+        </select>
+          </div>
+
+          <div class="ifield">
+            <label for="yard_size">Approximate yard size</label>
+            <select id="yard_size">
+          <option value="">Select size…</option>
+          <option>Small (under 500 sq ft)</option>
+          <option>Medium (500–1500 sq ft)</option>
+          <option>Large (1500–3000 sq ft)</option>
+          <option>Extra large (3000+ sq ft)</option>
+          <option>Not sure</option>
+        </select>
+          </div>
+
+          <div class="ifield">
+            <label>What services are you interested in? <span style="font-size:11px;color:var(--muted);font-weight:400">(check all that apply)</span></label>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:6px;">
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_mowing" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Lawn mowing
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_weeding" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Weeding
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_trimming" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Hedge / shrub trimming
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_leaves" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Leaf removal
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_planting" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Planting / garden beds
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_cleanup" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> General cleanup / debris removal
+          </label>
+              <label style="display:flex;align-items:center;gap:10px;font-size:13px;font-weight:400;cursor:pointer;">
+            <input type="checkbox" id="svc_other" style="width:16px;height:16px;accent-color:var(--olive);flex-shrink:0;"> Other (describe below)
+          </label>
+            </div>
+          </div>
+
+          <div class="ifield">
+            <label for="notes">Anything else we should know?</label>
+            <textarea id="notes" rows="4" placeholder="Describe your outdoor space, any specific concerns, preferred schedule, or special requests."></textarea>
+          </div>
+
+          <button class="ibtn" id="submit-btn" onclick="submitForm()">Send Inquiry →</button>
+        </div>
+      </div>
+
+      <div class="success-screen" id="success">
+        <div class="success-icon">✓</div>
+        <h2>We got your message!</h2>
+        <p>Thanks for reaching out. We'll follow up with a quote within 1 business day.</p>
+        <p style="margin-top:16px; font-size:13px; color:var(--muted);">In a hurry? Call us directly at <a href="tel:9292742102" style="color:var(--olive); font-weight:500;">929-274-2102</a>.</p>
+      </div>
+
+    </div>
+    <!-- /inquiry-wrap -->
+
+    <!-- ── Footer ─────────────────────────────────────── -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div>
+          <h3>Drame Brothers<br>Home &amp; Yard</h3>
+          <p class="footer-tagline">West Philadelphia &amp; surrounding areas</p>
+        </div>
+        <div class="footer-contact">
+          <h4>Contact Us</h4>
+          <p><a href="mailto:drame.home.yard@gmail.com">drame.home.yard@gmail.com</a></p>
+          <p><a href="tel:9292742102">929-274-2102</a></p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <span id="yr"></span> Drame Brothers Home &amp; Yard</span>
+        <span>West Philadelphia, PA</span>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('yr').textContent = new Date().getFullYear();
+
+      // ── CONFIGURATION ──────────────────────────────────
+      // Same Apps Script URL as the home cleaning form
+      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhKr3w3NbEFbo6jYC4THZmIJpQnEf6mtl8Vx3ExbOZs85F_aLO1NZDp37RNFb2H_EWdQ/exec';
+
+      function gv(id) {
+        var e = document.getElementById(id);
+        return e ? e.value.trim() : '';
+      }
+
+      function gc(id) {
+        var e = document.getElementById(id);
+        return e && e.checked;
+      }
+
+      function getServices() {
+        var svcs = [];
+        if (gc('svc_mowing')) svcs.push('Lawn mowing');
+        if (gc('svc_weeding')) svcs.push('Weeding');
+        if (gc('svc_trimming')) svcs.push('Hedge / shrub trimming');
+        if (gc('svc_leaves')) svcs.push('Leaf removal');
+        if (gc('svc_planting')) svcs.push('Planting / garden beds');
+        if (gc('svc_cleanup')) svcs.push('General cleanup / debris removal');
+        if (gc('svc_other')) svcs.push('Other');
+        return svcs.join(', ') || 'Not specified';
+      }
+
+      function validate() {
+        document.querySelectorAll('.field-error').forEach(function(e) {
+          e.remove();
+        });
+        document.querySelectorAll('.err').forEach(function(e) {
+          e.classList.remove('err');
+        });
+        var ok = true;
+        ['client_name', 'phone', 'email', 'address'].forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el && !el.value.trim()) {
+            el.classList.add('err');
+            var msg = document.createElement('div');
+            msg.className = 'field-error';
+            msg.textContent = 'This field is required.';
+            el.parentNode.insertBefore(msg, el.nextSibling);
+            ok = false;
+          }
+        });
+        return ok;
+      }
+
+      function submitForm() {
+        if (!validate()) return;
+        var btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+
+        var data = {
+          submissionDate: new Date().toLocaleString(),
+          serviceType: 'Yard & Garden Maintenance Inquiry',
+          cleaningScope: gv('property_type'),
+          clientName: gv('client_name'),
+          phone: gv('phone'),
+          email: gv('email'),
+          address: gv('address'),
+          frequency: gv('frequency'),
+          yardSize: gv('yard_size'),
+          servicesWanted: getServices(),
+          notes: gv('notes'),
+          readyToBook: 'Yes',
+          estimatedPrice: 'TBD — inquiry form',
+          // Fill remaining expected columns with blanks
+          bedrooms: 0,
+          fullBathrooms: 0,
+          halfBathrooms: 0,
+          kitchen: 0,
+          livingRoom: 0,
+          diningRoom: 0,
+          basement: 0,
+          otherRoom: 0,
+          closet: 0,
+          hallway: 0,
+          residents: '',
+          pets: '',
+          condition: '',
+          addFridge: 'No',
+          addOven: 'No',
+          addCabinets: 'No',
+          addDishes: 'No',
+          productPreference: '',
+          appt1Day: '',
+          appt1Time: '',
+          appt2Day: '',
+          appt2Time: '',
+          appt3Day: '',
+          appt3Time: ''
+        };
+
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(data)
+        }).catch(function() {}).finally(function() {
+          document.getElementById('inquiry-form').style.display = 'none';
+          document.getElementById('success').classList.add('show');
+        });
+      }
+    </script>
+  </body>
+
+</html>
