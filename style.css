@@ -94,6 +94,8 @@ p:last-child {
   top: 0;
   z-index: 100;
   background: var(--olive);
+  padding: 16px 40px;
+  justify-content: flex-end;
 }
 
 .nav-logo {
@@ -283,6 +285,10 @@ p:last-child {
 
 .services {
   background: var(--off);
+}
+
+.services .section-inner {
+  text-align: center;
 }
 
 .services-grid {
