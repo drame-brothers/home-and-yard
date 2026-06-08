@@ -94,8 +94,11 @@ p:last-child {
   top: 0;
   z-index: 100;
   background: var(--olive);
-  padding: 16px 40px;
+  display: flex;
+  align-items: center;
   justify-content: flex-end;
+  padding: 20px 40px;
+  gap: 28px;
 }
 
 .nav-logo {
@@ -133,7 +136,7 @@ p:last-child {
   background: var(--olive);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 16px 40px;
 }
 
