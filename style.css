@@ -102,6 +102,7 @@ p:last-child {
   color: var(--cream);
   letter-spacing: 0.02em;
   opacity: 0.9;
+  display: none;
 }
 
 .nav-links {
@@ -130,7 +131,7 @@ p:last-child {
   background: var(--olive);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 16px 40px;
 }
 
