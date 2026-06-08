@@ -160,7 +160,8 @@ p:last-child {
 
 .hero {
   position: relative;
-  min-height: 520px;
+  height: 58vh;
+  min-height: 420px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -264,6 +265,16 @@ p:last-child {
   color: #3a3d26;
   max-width: 680px;
   margin-bottom: 1.1em;
+}
+
+.about .section-inner {
+  text-align: center;
+}
+
+.about .section-inner p {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 

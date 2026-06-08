@@ -929,7 +929,7 @@
 
         if (pts === 0) return null;
 
-        var base = pts * 17;
+        var base = pts * 15;
         var scope = gr('cleaning_scope');
         var svc = gv('service_type');
         var cond = gr('condition');
@@ -951,10 +951,10 @@
           svc === 'Monthly Service' ? 0.95 : 1.0;
         price *= disc;
 
-        if (gr('pets') === 'Yes') price += 20;
-        if (gc('add_fridge')) price += 25;
-        if (gc('add_oven')) price += 35;
-        if (gc('add_cabinets')) price += 40;
+        if (gr('pets') === 'Yes') price += price * 0.08;
+        if (gc('add_fridge')) price += 20;
+        if (gc('add_oven')) price += 20;
+        if (gc('add_cabinets')) price += 35;
         if (gc('add_dishes')) price += 20;
 
         return Math.round(price * 100) / 100;
