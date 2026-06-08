@@ -768,9 +768,9 @@
       <div class="card">
         <div class="card-label">Optional Add-Ons</div>
         <div class="opt-group">
-          <label class="opt"><input type="checkbox" id="add_fridge"><div class="opt-body"><div class="opt-title">Inside refrigerator cleaning</div></div><div class="opt-price">+$25</div></label>
-          <label class="opt"><input type="checkbox" id="add_oven"><div class="opt-body"><div class="opt-title">Inside oven cleaning</div></div><div class="opt-price">+$35</div></label>
-          <label class="opt"><input type="checkbox" id="add_cabinets"><div class="opt-body"><div class="opt-title">Inside cabinet cleaning</div></div><div class="opt-price">+$40</div></label>
+          <label class="opt"><input type="checkbox" id="add_fridge"><div class="opt-body"><div class="opt-title">Inside refrigerator cleaning</div></div><div class="opt-price">+$20</div></label>
+          <label class="opt"><input type="checkbox" id="add_oven"><div class="opt-body"><div class="opt-title">Inside oven cleaning</div></div><div class="opt-price">+$20</div></label>
+          <label class="opt"><input type="checkbox" id="add_cabinets"><div class="opt-body"><div class="opt-title">Inside cabinet cleaning</div></div><div class="opt-price">+$35</div></label>
           <label class="opt"><input type="checkbox" id="add_dishes"><div class="opt-body"><div class="opt-title">Dish washing</div></div><div class="opt-price">+$20</div></label>
         </div>
       </div>
@@ -951,7 +951,7 @@
           svc === 'Monthly Service' ? 0.95 : 1.0;
         price *= disc;
 
-        if (gr('pets') === 'Yes') price += price * 0.08;
+        if (gr('pets') === 'Yes') price += price * 0.07;
         if (gc('add_fridge')) price += 20;
         if (gc('add_oven')) price += 20;
         if (gc('add_cabinets')) price += 35;
