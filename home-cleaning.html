@@ -459,7 +459,6 @@ select.err, input.err, textarea.err { border-color: var(--red); }
       <div class="room-row"><div class="rl">Kitchen</div><input type="number" id="kitchen" min="0" value="0"></div>
       <div class="room-row"><div class="rl">Closets</div><input type="number" id="closet" min="0" value="0"></div>
       <div class="room-row"><div class="rl">Living Rooms</div><input type="number" id="living_room" min="0" value="0"></div>
-      <div class="room-row"><div class="rl">Hallways / Stairwells</div><input type="number" id="hallway" min="0" value="0"></div>
     </div>
   </div>
 
@@ -657,8 +656,7 @@ function calcPrice() {
     gn('dining_room')   * 1.0 +
     gn('basement')      * 1.5 +
     gn('other_room')    * 1.0 +
-    gn('closet')        * 0.25 +
-    gn('hallway')       * 0.5;
+    gn('closet')        * 0.25;
 
   if (pts === 0) return null;
 
@@ -708,7 +706,7 @@ function updatePrice() {
 
 // ── Event wiring ──────────────────────────────────────────────
 ['bedroom','full_bathroom','half_bathroom','kitchen','living_room',
- 'dining_room','basement','other_room','closet','hallway',
+ 'dining_room','basement','other_room','closet',
  'residents','service_type','add_fridge','add_oven','add_cabinets','add_dishes'
 ].forEach(function(id) {
   var el = document.getElementById(id);
@@ -789,7 +787,6 @@ function submitForm() {
     basement:          gn('basement'),
     otherRoom:         gn('other_room'),
     closet:            gn('closet'),
-    hallway:           gn('hallway'),
     residents:         gn('residents'),
     pets:              gr('pets'),
     condition:         gr('condition'),
