@@ -459,6 +459,7 @@ select.err, input.err, textarea.err { border-color: var(--red); }
       <div class="room-row"><div class="rl">Kitchen</div><input type="number" id="kitchen" min="0" value="0"></div>
       <div class="room-row"><div class="rl">Closets</div><input type="number" id="closet" min="0" value="0"></div>
       <div class="room-row"><div class="rl">Living Rooms</div><input type="number" id="living_room" min="0" value="0"></div>
+      <div class="room-row"><div class="rl">Hallways / Stairwells</div><input type="number" id="hallway" min="0" value="0"></div>
     </div>
   </div>
 
@@ -514,9 +515,9 @@ select.err, input.err, textarea.err { border-color: var(--red); }
   <div class="card">
     <div class="card-label">Optional Add-Ons</div>
     <div class="opt-group">
-      <label class="opt"><input type="checkbox" id="add_fridge"><div class="opt-body"><div class="opt-title">Inside refrigerator cleaning</div></div><div class="opt-price">+$20</div></label>
-      <label class="opt"><input type="checkbox" id="add_oven"><div class="opt-body"><div class="opt-title">Inside oven cleaning</div></div><div class="opt-price">+$20</div></label>
-      <label class="opt"><input type="checkbox" id="add_cabinets"><div class="opt-body"><div class="opt-title">Inside cabinet cleaning</div></div><div class="opt-price">+$30</div></label>
+      <label class="opt"><input type="checkbox" id="add_fridge"><div class="opt-body"><div class="opt-title">Inside refrigerator cleaning</div></div><div class="opt-price">+$25</div></label>
+      <label class="opt"><input type="checkbox" id="add_oven"><div class="opt-body"><div class="opt-title">Inside oven cleaning</div></div><div class="opt-price">+$35</div></label>
+      <label class="opt"><input type="checkbox" id="add_cabinets"><div class="opt-body"><div class="opt-title">Inside cabinet cleaning</div></div><div class="opt-price">+$40</div></label>
       <label class="opt"><input type="checkbox" id="add_dishes"><div class="opt-body"><div class="opt-title">Dish washing</div></div><div class="opt-price">+$20</div></label>
     </div>
   </div>
@@ -656,11 +657,12 @@ function calcPrice() {
     gn('dining_room')   * 1.0 +
     gn('basement')      * 1.5 +
     gn('other_room')    * 1.0 +
-    gn('closet')        * 0.25;
+    gn('closet')        * 0.25 +
+    gn('hallway')       * 0.5;
 
   if (pts === 0) return null;
 
-  var base = pts * 15;
+  var base = pts * 35;
   var scope = gr('cleaning_scope');
   var svc   = gv('service_type');
   var cond  = gr('condition');
@@ -682,10 +684,10 @@ function calcPrice() {
              svc === 'Monthly Service'  ? 0.95 : 1.0;
   price *= disc;
 
-  if (gr('pets') === 'Yes') price ? 1.07 : 1.0;
-  if (gc('add_fridge'))     price += 20;
-  if (gc('add_oven'))       price += 20;
-  if (gc('add_cabinets'))   price += 30;
+  if (gr('pets') === 'Yes') price += 20;
+  if (gc('add_fridge'))     price += 25;
+  if (gc('add_oven'))       price += 35;
+  if (gc('add_cabinets'))   price += 40;
   if (gc('add_dishes'))     price += 20;
 
   return Math.round(price * 100) / 100;
@@ -706,7 +708,7 @@ function updatePrice() {
 
 // ── Event wiring ──────────────────────────────────────────────
 ['bedroom','full_bathroom','half_bathroom','kitchen','living_room',
- 'dining_room','basement','other_room','closet',
+ 'dining_room','basement','other_room','closet','hallway',
  'residents','service_type','add_fridge','add_oven','add_cabinets','add_dishes'
 ].forEach(function(id) {
   var el = document.getElementById(id);
@@ -787,6 +789,7 @@ function submitForm() {
     basement:          gn('basement'),
     otherRoom:         gn('other_room'),
     closet:            gn('closet'),
+    hallway:           gn('hallway'),
     residents:         gn('residents'),
     pets:              gr('pets'),
     condition:         gr('condition'),
