@@ -1,312 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Share Your Feedback — Drame Brothers Home & Yard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.satisfaction-group{display:flex;flex-direction:column;gap:8px;margin-top:4px}
+.sat-option{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1.5px solid var(--border);border-radius:var(--radius);cursor:pointer;transition:border-color .15s,background .15s;user-select:none;position:relative}
+.sat-option:hover{border-color:var(--gold);background:var(--gold-lt)}.sat-option.on{border-color:var(--gold);background:var(--gold-lt)}
+.sat-option input[type="radio"]{position:absolute;opacity:0;width:0;height:0}
+.sat-radio-indicator{display:inline-flex;width:18px;height:18px;border-radius:50%;border:2px solid var(--border);flex-shrink:0;align-items:center;justify-content:center;transition:border-color .15s,background .15s;background:var(--white);vertical-align:middle}
+.sat-option.on .sat-radio-indicator{border-color:var(--olive);background:var(--olive)}
+.sat-radio-indicator::after{content:'';display:none;width:5px;height:9px;border:2px solid var(--cream);border-top:none;border-left:none;transform:rotate(45deg) translateY(-1px)}
+.sat-option.on .sat-radio-indicator::after{display:block}
+.sat-label{font-size:14px;font-weight:500;color:var(--text);line-height:1}
+.char-count{font-size:11px;color:var(--muted);text-align:right;margin-top:4px}
+</style>
+</head>
+<body>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Share Your Feedback — Drame Brothers Home & Yard</title>
-    <meta name="robots" content="noindex, nofollow">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-      .satisfaction-group {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 4px;
-      }
+<div id="site-header"></div>
 
-      .sat-option {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 13px 16px;
-        border: 1.5px solid var(--border);
-        border-radius: var(--radius);
-        cursor: pointer;
-        transition: border-color 0.15s, background 0.15s;
-        user-select: none;
-        position: relative;
-      }
+<div class="inquiry-wrap">
+  <div id="feedback-form">
+    <div class="inquiry-card">
 
-      .sat-option:hover {
-        border-color: var(--gold);
-        background: var(--gold-lt);
-      }
-
-      .sat-option.on {
-        border-color: var(--gold);
-        background: var(--gold-lt);
-      }
-      /* Hide native radio — we draw our own indicator */
-
-      .sat-option input[type="radio"] {
-        position: absolute;
-        opacity: 0;
-        width: 0;
-        height: 0;
-      }
-      /* Custom radio circle */
-
-      .sat-radio-indicator {
-        display: inline-flex;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        border: 2px solid var(--border);
-        flex-shrink: 0;
-        align-items: center;
-        justify-content: center;
-        transition: border-color 0.15s, background 0.15s;
-        background: var(--white);
-        vertical-align: middle;
-      }
-
-      .sat-option.on .sat-radio-indicator {
-        border-color: var(--olive);
-        background: var(--olive);
-      }
-      /* Checkmark inside the indicator */
-
-      .sat-radio-indicator::after {
-        content: '';
-        display: none;
-        width: 5px;
-        height: 9px;
-        border: 2px solid var(--cream);
-        border-top: none;
-        border-left: none;
-        transform: rotate(45deg) translateY(-1px);
-      }
-
-      .sat-option.on .sat-radio-indicator::after {
-        display: block;
-      }
-
-      .sat-label {
-        font-size: 14px;
-        font-weight: 500;
-        color: var(--text);
-        line-height: 1;
-      }
-
-      .char-count {
-        font-size: 11px;
-        color: var(--muted);
-        text-align: right;
-        margin-top: 4px;
-      }
-    </style>
-  </head>
-
-  <body>
-
-    <!-- ── Topbar ──────────────────────────────────────── -->
-    <header>
-      <div class="topbar">
-        <span class="topbar-logo"><a href="www.dramebrothers.com">Drame Brothers Home &amp; Yard</a></span>
-        <span style="font-size:13px; color:rgba(242,234,216,0.45); letter-spacing:0.04em;">Feedback</span>
+      <div class="two-col" style="margin-bottom:16px;">
+        <div class="ifield" style="margin:0;"><label for="client_name">Your Name</label><input type="text" id="client_name" placeholder="First and last name"></div>
+        <div class="ifield" style="margin:0;"><label for="contact">Email</label><input type="email" id="contact" placeholder="your@email.com"></div>
       </div>
-      <div class="page-hero">
-        <h1>How did it go?</h1>
-        <p>We always want to improve, so we appreciate your feedback — we read every word of it!</p>
-      </div>
-    </header>
 
-    <!-- ── Form ───────────────────────────────────────── -->
-    <div class="inquiry-wrap">
-      <div id="feedback-form">
-        <div class="inquiry-card">
+      <div style="height:1px;background:var(--border);margin:24px 0;"></div>
 
-          <!-- Contact info -->
-          <div class="two-col" style="margin-bottom:16px;">
-            <div class="ifield" style="margin:0;">
-              <label for="client_name">Your Name</label>
-              <input type="text" id="client_name" placeholder="First and last name">
-            </div>
-            <div class="ifield" style="margin:0;">
-              <label for="contact">Email</label>
-              <input type="email" id="contact" placeholder="your@email.com">
-            </div>
-          </div>
-
-          <div style="height:1px; background:var(--border); margin:24px 0;"></div>
-
-          <!-- Q1: Satisfaction -->
-          <div class="ifield">
-            <label style="margin-bottom:10px; display:block;">1. How satisfied are you with our work? <span style="color:var(--red)">*</span></label>
-            <div class="satisfaction-group">
-              <label class="sat-option" data-group="satisfaction">
-            <input type="radio" name="satisfaction" value="Fully satisfied">
-            <span class="sat-radio-indicator"></span>
-            <span class="sat-label">Fully satisfied</span>
-          </label>
-              <label class="sat-option" data-group="satisfaction">
-            <input type="radio" name="satisfaction" value="Mostly satisfied">
-            <span class="sat-radio-indicator"></span>
-            <span class="sat-label">Mostly satisfied</span>
-          </label>
-              <label class="sat-option" data-group="satisfaction">
-            <input type="radio" name="satisfaction" value="Not satisfied">
-            <span class="sat-radio-indicator"></span>
-            <span class="sat-label">Not satisfied</span>
-          </label>
-            </div>
-          </div>
-
-          <!-- Q2: Improvement -->
-          <div class="ifield">
-            <label for="improve">2. What could we do better?</label>
-            <div style="font-size:12px; color:var(--muted); margin-bottom:6px; line-height:1.5;">We welcome your feedback on our work itself, ease of scheduling, rates, communication, etc. Be honest! We always want to improve.</div>
-            <textarea id="improve" rows="4" placeholder="Your thoughts…" maxlength="1000" oninput="updateCount(this, 'improve-count')"></textarea>
-            <div class="char-count" id="improve-count">0 / 1000</div>
-          </div>
-
-          <!-- Q3: Appreciated -->
-          <div class="ifield">
-            <label for="appreciated">3. Anything you particularly appreciated?</label>
-            <textarea id="appreciated" rows="3" placeholder="Your thoughts…" maxlength="1000" oninput="updateCount(this, 'appreciated-count')"></textarea>
-            <div class="char-count" id="appreciated-count">0 / 1000</div>
-          </div>
-
-          <!-- Q4: Other notes -->
-          <div class="ifield">
-            <label for="notes">4. Any other notes?</label>
-            <textarea id="notes" rows="3" placeholder="Anything else you'd like us to know…" maxlength="1000" oninput="updateCount(this, 'notes-count')"></textarea>
-            <div class="char-count" id="notes-count">0 / 1000</div>
-          </div>
-
-          <button class="ibtn" id="submit-btn" onclick="submitFeedback()">Send Feedback →</button>
-
-          <div style="margin-top:20px; padding:16px 18px; background:var(--gold-lt); border:1.5px solid var(--gold); border-radius:var(--radius); text-align:center;">
-            <div style="font-size:12px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--olive-lt); margin-bottom:6px;">A thank-you from us</div>
-            <div style="font-family:var(--serif); font-size:20px; color:var(--olive); margin-bottom:6px;">10% off routine cleaning for one month</div>
-            <div style="font-size:13px; color:var(--muted); line-height:1.6;">Available for weekly, biweekly, or monthly service. Mention this offer when you get in touch.</div>
-          </div>
-
+      <div class="ifield">
+        <label style="margin-bottom:10px;display:block;">1. How satisfied are you with our work? <span style="color:var(--red)">*</span></label>
+        <div class="satisfaction-group">
+          <label class="sat-option" data-group="satisfaction"><input type="radio" name="satisfaction" value="Fully satisfied"><span class="sat-radio-indicator"></span><span class="sat-label">Fully satisfied</span></label>
+          <label class="sat-option" data-group="satisfaction"><input type="radio" name="satisfaction" value="Mostly satisfied"><span class="sat-radio-indicator"></span><span class="sat-label">Mostly satisfied</span></label>
+          <label class="sat-option" data-group="satisfaction"><input type="radio" name="satisfaction" value="Not satisfied"><span class="sat-radio-indicator"></span><span class="sat-label">Not satisfied</span></label>
         </div>
       </div>
 
-      <!-- Success -->
-      <div class="success-screen" id="success">
-        <div class="success-icon">✓</div>
-        <h2>Thank you!</h2>
-        <p>We've received your feedback and genuinely appreciate you taking the time.</p>
-        <div style="margin-top:24px; padding:18px 20px; background:var(--gold-lt); border:1.5px solid var(--gold); border-radius:var(--radius);">
-          <div style="font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--olive-lt); margin-bottom:6px;">A thank-you from us</div>
-          <div style="font-family:var(--serif); font-size:20px; color:var(--olive); margin-bottom:6px;">10% off routine cleaning for one month</div>
-          <div style="font-size:13px; color:var(--muted); line-height:1.6;">Available for weekly, biweekly, or monthly service. Just mention this offer when you get in touch — no code needed.</div>
-        </div>
-        <p style="margin-top:16px; font-size:13px; color:var(--muted);">— Drame Brothers Home &amp; Yard</p>
+      <div class="ifield">
+        <label for="improve">2. What could we do better?</label>
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px;line-height:1.5;">We welcome your feedback on our work itself, ease of scheduling, communication, etc. Be honest! We always want to improve.</div>
+        <textarea id="improve" rows="4" placeholder="Your thoughts…" maxlength="1000" oninput="updateCount(this,'improve-count')"></textarea>
+        <div class="char-count" id="improve-count">0 / 1000</div>
       </div>
+
+      <div class="ifield">
+        <label for="appreciated">3. Anything you particularly appreciated?</label>
+        <textarea id="appreciated" rows="3" placeholder="Your thoughts…" maxlength="1000" oninput="updateCount(this,'appreciated-count')"></textarea>
+        <div class="char-count" id="appreciated-count">0 / 1000</div>
+      </div>
+
+      <div class="ifield">
+        <label for="notes">4. Any other notes?</label>
+        <textarea id="notes" rows="3" placeholder="Anything else you'd like us to know…" maxlength="1000" oninput="updateCount(this,'notes-count')"></textarea>
+        <div class="char-count" id="notes-count">0 / 1000</div>
+      </div>
+
+      <button class="ibtn" id="submit-btn" onclick="submitFeedback()">Send Feedback →</button>
+
+      <div style="margin-top:20px;padding:16px 18px;background:var(--gold-lt);border:1.5px solid var(--gold);border-radius:var(--radius);text-align:center;">
+        <div style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-lt);margin-bottom:6px;">A thank-you from us</div>
+        <div style="font-family:var(--serif);font-size:20px;color:var(--olive);margin-bottom:6px;">10% off routine cleaning for one month</div>
+        <div style="font-size:13px;color:var(--muted);line-height:1.6;">Available for weekly, biweekly, or monthly service. Mention this offer when you get in touch — no code needed.</div>
+      </div>
+
     </div>
+  </div>
 
-    <!-- ── Footer ─────────────────────────────────────── -->
-    <footer class="footer">
-      <div class="footer-inner">
-        <div>
-          <h3>Drame Brothers<br>Home &amp; Yard</h3>
-          <p class="footer-tagline">West Philadelphia &amp; surrounding areas</p>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <p><a href="mailto:drame.home.yard@gmail.com">drame.home.yard@gmail.com</a></p>
-          <p><a href="tel:9292742102">929-274-2102</a></p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="yr"></span> Drame Brothers Home &amp; Yard</span>
-        <span>West Philadelphia, PA</span>
-      </div>
-    </footer>
+  <div class="success-screen" id="success">
+    <div class="success-icon">✓</div>
+    <h2>Thank you!</h2>
+    <p>We've received your feedback and genuinely appreciate you taking the time.</p>
+    <div style="margin-top:24px;padding:18px 20px;background:var(--gold-lt);border:1.5px solid var(--gold);border-radius:var(--radius);">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--olive-lt);margin-bottom:6px;">A thank-you from us</div>
+      <div style="font-family:var(--serif);font-size:20px;color:var(--olive);margin-bottom:6px;">10% off routine cleaning for one month</div>
+      <div style="font-size:13px;color:var(--muted);line-height:1.6;">Available for weekly, biweekly, or monthly service. Just mention this offer when you get in touch — no code needed.</div>
+    </div>
+    <p style="margin-top:16px;font-size:13px;color:var(--muted);">— Drame Brothers Home &amp; Yard</p>
+  </div>
+</div>
 
-    <script>
-      document.getElementById('yr').textContent = new Date().getFullYear();
+<div id="site-footer"></div>
 
-      var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwhKr3w3NbEFbo6jYC4THZmIJpQnEf6mtl8Vx3ExbOZs85F_aLO1NZDp37RNFb2H_EWdQ/exec';
+<script src="config.js"></script>
+<script src="components.js"></script>
+<script>
+renderTopbar('site-header',{heroTitle:'Share Your Feedback',heroSubtitle:'Thank you for helping us improve!'});
+renderFooter('site-footer');
 
-      function updateCount(el, countId) {
-        document.getElementById(countId).textContent = el.value.length + ' / 1000';
-      }
+function updateCount(el,countId){document.getElementById(countId).textContent=el.value.length+' / 1000';}
 
-      // Radio visual feedback + deselect on re-click
-      var lastClicked = null;
-      document.querySelectorAll('.sat-option').forEach(function(opt) {
-        opt.addEventListener('click', function() {
-          var radio = opt.querySelector('input[type="radio"]');
-          if (lastClicked === opt && opt.classList.contains('on')) {
-            // Re-click on already selected option — deselect
-            radio.checked = false;
-            opt.classList.remove('on');
-            lastClicked = null;
-          } else {
-            // Select this option, deselect others
-            document.querySelectorAll('.sat-option').forEach(function(o) {
-              o.classList.remove('on');
-            });
-            opt.classList.add('on');
-            lastClicked = opt;
-          }
-        });
-      });
+var lastClicked=null;
+document.querySelectorAll('.sat-option').forEach(function(opt){
+  opt.addEventListener('click',function(){
+    var radio=opt.querySelector('input[type="radio"]');
+    if(lastClicked===opt&&opt.classList.contains('on')){radio.checked=false;opt.classList.remove('on');lastClicked=null;}
+    else{document.querySelectorAll('.sat-option').forEach(function(o){o.classList.remove('on');});opt.classList.add('on');lastClicked=opt;}
+  });
+});
 
-      function gv(id) {
-        var e = document.getElementById(id);
-        return e ? e.value.trim() : '';
-      }
+function gv(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+function gr(nm){var e=document.querySelector('input[name="'+nm+'"]:checked');return e?e.value:'';}
 
-      function gr(nm) {
-        var e = document.querySelector('input[name="' + nm + '"]:checked');
-        return e ? e.value : '';
-      }
+function validate(){
+  document.querySelectorAll('.field-error').forEach(function(e){e.remove();});
+  var sat=gr('satisfaction');
+  if(!sat){var g=document.querySelector('.satisfaction-group');var m=document.createElement('div');m.className='field-error';m.textContent='Please select a satisfaction level.';g.parentNode.insertBefore(m,g.nextSibling);return false;}
+  return true;
+}
 
-      function validate() {
-        document.querySelectorAll('.field-error').forEach(function(e) {
-          e.remove();
-        });
-        var sat = gr('satisfaction');
-        if (!sat) {
-          var group = document.querySelector('.satisfaction-group');
-          var msg = document.createElement('div');
-          msg.className = 'field-error';
-          msg.textContent = 'Please select a satisfaction level.';
-          group.parentNode.insertBefore(msg, group.nextSibling);
-          return false;
-        }
-        return true;
-      }
-
-      function submitFeedback() {
-        if (!validate()) return;
-        var btn = document.getElementById('submit-btn');
-        btn.disabled = true;
-        btn.textContent = 'Sending…';
-
-        var data = {
-          formType: 'feedback',
-          submissionDate: new Date().toLocaleString(),
-          clientName: gv('client_name'),
-          contact: gv('contact'),
-          satisfaction: gr('satisfaction'),
-          improve: gv('improve'),
-          appreciated: gv('appreciated'),
-          notes: gv('notes')
-        };
-
-        fetch(SCRIPT_URL, {
-          method: 'POST',
-          mode: 'no-cors',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        }).catch(function() {}).finally(function() {
-          document.getElementById('feedback-form').style.display = 'none';
-          document.getElementById('success').classList.add('show');
-        });
-      }
-    </script>
-  </body>
-
+function submitFeedback(){
+  if(!validate())return;
+  var btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';
+  var data={formType:'feedback',submissionDate:new Date().toLocaleString(),clientName:gv('client_name'),contact:gv('contact'),satisfaction:gr('satisfaction'),improve:gv('improve'),appreciated:gv('appreciated'),notes:gv('notes')};
+  fetch(DB.scriptUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){}).finally(function(){document.getElementById('feedback-form').style.display='none';document.getElementById('success').classList.add('show');});
+}
+</script>
+</body>
 </html>

@@ -1,165 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drame Brothers Home & Yard — West Philadelphia</title>
+<meta name="description" content="Home cleaning, small business cleaning, and yard & garden maintenance in West Philadelphia. Quality service at reasonable prices.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.dramebrothers.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  .hero { background-image: url('images/hero.jpg'); }
+  .scard-cleaning  { background-image: url('images/home-cleaning.jpg'); }
+  .scard-business  { background-image: url('images/small-business.jpg'); }
+  .scard-yard      { background-image: url('images/yard-garden.jpg'); }
+</style>
+</head>
+<body>
 
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>Drame Brothers Home & Yard — West Philadelphia</title>
-    <meta name="description" content="Home cleaning, small business cleaning, and yard & garden maintenance in West Philadelphia. Quality service at reasonable prices.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-      /* ── Hero image ──────────────────────────────────────
-     Replace the background-image URL with your own photo.
-     Recommended: a high-quality photo of a home exterior,
-     garden, or clean interior. Aim for 1600px wide or larger.
-     ─────────────────────────────────────────────────── */
+<div id="site-nav"></div>
 
-      .hero {
-        background-image: url('images/hero.jpg');
-        /* If you don't have a hero image yet, the dark olive
-       fallback color will show instead. */
-      }
-      /* ── Service card images ─────────────────────────────
-     Replace each background-image with your own photo.
-     Recommended size: at least 600×800px (portrait).
-     ─────────────────────────────────────────────────── */
+<section class="hero" aria-label="Hero">
+  <div class="hero-overlay" aria-hidden="true"></div>
+  <div class="hero-card">
+    <h1>Drame Brothers<br>Home &amp; Yard</h1>
+    <p>Home cleaning, garden maintenance, and more —<br>all at reasonable prices.</p>
+    <a href="#services" class="hero-btn">See Our Services</a>
+  </div>
+</section>
 
-      .scard-cleaning {
-        background-image: url('images/home-cleaning.jpg');
-      }
+<section class="section about" id="about" aria-labelledby="about-heading">
+  <div class="section-inner">
+    <div class="section-label">About</div>
+    <h2 id="about-heading">About</h2>
+    <p>Drame Brothers Home &amp; Yard is based in West Philadelphia. We got our start cleaning and maintaining large commercial buildings like schools and hotels. Now we work on more personal spaces, including homes, gardens, and small businesses.</p>
+    <p>We keep costs down by running a simple operation. No overhead and no unnecessary gear — just whatever it takes to get the job done. We offer quality service at practical prices, because we know that having clean and beautiful spaces improves the lives we live in them.</p>
+  </div>
+</section>
 
-      .scard-business {
-        background-image: url('images/small-business.jpg');
-      }
+<section class="section services" id="services" aria-labelledby="services-heading">
+  <div class="section-inner">
+    <div class="section-label">What We Do</div>
+    <h2 id="services-heading">Services</h2>
+    <div class="services-grid">
+      <a href="home-cleaning.html" class="service-card" aria-label="Home Cleaning — get an estimate">
+        <div class="service-img-placeholder scard-cleaning" role="img" aria-label="Home cleaning"></div>
+        <div class="service-overlay"><div class="service-label">Home Cleaning<span class="service-cta">Get an Estimate →</span></div></div>
+      </a>
+      <a href="small-business.html" class="service-card" aria-label="Small Business Cleaning — get an estimate">
+        <div class="service-img-placeholder scard-business" role="img" aria-label="Small business cleaning"></div>
+        <div class="service-overlay"><div class="service-label">Small Business Cleaning<span class="service-cta">Get an Estimate →</span></div></div>
+      </a>
+      <a href="yard-garden.html" class="service-card" aria-label="Yard & Garden Maintenance — get an estimate">
+        <div class="service-img-placeholder scard-yard" role="img" aria-label="Yard and garden maintenance"></div>
+        <div class="service-overlay"><div class="service-label">Yard &amp; Garden Maintenance<span class="service-cta">Get an Estimate →</span></div></div>
+      </a>
+    </div>
+  </div>
+</section>
 
-      .scard-yard {
-        background-image: url('images/yard-garden.jpg');
-      }
-    </style>
-  </head>
+<div id="site-footer"></div>
 
-  <body>
-
-    <!-- ── Navigation ────────────────────────────────────── -->
-    <nav class="nav" aria-label="Site navigation">
-      <div class="nav-logo">Drame Brothers</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-
-    <!-- ── Hero ──────────────────────────────────────────── -->
-    <section class="hero" aria-label="Hero">
-      <div class="hero-overlay" aria-hidden="true"></div>
-      <div class="hero-card">
-        <h1>Drame Brothers<br>Home &amp; Yard</h1>
-        <p>Home cleaning, garden maintenance, and more —<br>all at reasonable prices.</p>
-        <a href="#services" class="hero-btn">See Our Services</a>
-      </div>
-    </section>
-
-    <!-- ── About ─────────────────────────────────────────── -->
-    <section class="section about" id="about" aria-labelledby="about-heading">
-      <div class="section-inner">
-        <div class="section-label">About</div>
-        <h2 id="about-heading">Who We Are</h2>
-        <p>Drame Brothers Home &amp; Yard is based in West Philadelphia. We got our start cleaning and maintaining large commercial buildings like schools and hotels. Now we work on more personal spaces, including homes, gardens, and small businesses.</p>
-        <p>We keep costs down by running a simple operation. No overhead and no unnecessary gear — just whatever it takes to get the job done. We offer quality service at practical prices, because we know that having clean and beautiful spaces improves the
-          lives we live in them.</p>
-      </div>
-    </section>
-
-    <!-- ── Services ───────────────────────────────────────── -->
-    <section class="section services" id="services" aria-labelledby="services-heading">
-      <div class="section-inner">
-        <div class="section-label">What We Do</div>
-        <h2 id="services-heading">Services</h2>
-        <div class="services-grid">
-
-          <!-- Home Cleaning -->
-          <a href="home-cleaning.html" class="service-card" aria-label="Home Cleaning — get an estimate">
-            <div class="service-img-placeholder scard-cleaning" role="img" aria-label="Home cleaning"></div>
-            <div class="service-overlay">
-              <div class="service-label">
-                Home Cleaning
-                <span class="service-cta">Get an Estimate →</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Small Business Cleaning -->
-          <a href="small-business.html" class="service-card" aria-label="Small Business Cleaning — get an estimate">
-            <div class="service-img-placeholder scard-business" role="img" aria-label="Small business cleaning"></div>
-            <div class="service-overlay">
-              <div class="service-label">
-                Small Business Cleaning
-                <span class="service-cta">Get an Estimate →</span>
-              </div>
-            </div>
-          </a>
-
-          <!-- Yard & Garden -->
-          <a href="yard-garden.html" class="service-card" aria-label="Yard & Garden Maintenance — get an estimate">
-            <div class="service-img-placeholder scard-yard" role="img" aria-label="Yard and garden maintenance"></div>
-            <div class="service-overlay">
-              <div class="service-label">
-                Yard &amp; Garden Maintenance
-                <span class="service-cta">Get an Estimate →</span>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- ── Footer / Contact ───────────────────────────────── -->
-    <footer class="footer" id="contact" aria-label="Contact and footer">
-      <div class="footer-inner">
-        <div>
-          <h3>Drame Brothers<br>Home &amp; Yard</h3>
-          <p class="footer-tagline">West Philadelphia &amp; surrounding areas</p>
-        </div>
-        <div class="footer-contact">
-          <h4>Contact Us</h4>
-          <p><a href="mailto:drame.home.yard@gmail.com">drame.home.yard@gmail.com</a></p>
-          <p><a href="tel:9292742102">929-274-2102</a></p>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© <span id="yr"></span> Drame Brothers Home &amp; Yard</span>
-        <span>West Philadelphia, PA</span>
-      </div>
-    </footer>
-
-    <script>
-      document.getElementById('yr').textContent = new Date().getFullYear();
-
-      // Smooth scroll for nav links
-      document.querySelectorAll('a[href^="#"]').forEach(function(a) {
-        a.addEventListener('click', function(e) {
-          var target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            e.preventDefault();
-            target.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-
-      // If service card images fail to load (no image file yet),
-      // the olive placeholder background shows instead — no broken image icons.
-      document.querySelectorAll('.service-img-placeholder').forEach(function(el) {
-        el.style.backgroundSize = 'cover';
-        el.style.backgroundPosition = 'center';
-      });
-    </script>
-  </body>
-
+<script src="config.js"></script>
+<script src="components.js"></script>
+<script>
+renderNav('site-nav');
+renderFooter('site-footer');
+document.querySelectorAll('.service-img-placeholder').forEach(function(el){el.style.backgroundSize='cover';el.style.backgroundPosition='center';});
+</script>
+</body>
 </html>

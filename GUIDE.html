@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Guide — Drame Brothers Home & Yard</title>
+<style>
+:root{--olive:#3d4228;--teal:#2E75B6;--gold:#c8b560;--cream:#f2ead8;--off:#f5f0e6;--white:#ffffff;--border:#e0d9c5;--muted:#8a8568;--text:#2a2c1a;--red:#8b2e1e}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:var(--off);color:var(--text);font-size:15px;line-height:1.7}
+.header{background:var(--olive);padding:40px 24px;text-align:center}
+.header h1{font-size:26px;color:var(--cream);margin-bottom:6px;font-weight:400;font-family:Georgia,serif}
+.header p{font-size:13px;color:rgba(242,234,216,.6)}
+.wrap{max-width:760px;margin:0 auto;padding:36px 20px 80px}
+h2{font-size:19px;color:var(--olive);margin:40px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--gold);font-weight:400;font-family:Georgia,serif}
+h3{font-size:14px;font-weight:600;color:var(--olive);margin:20px 0 8px}
+p{font-size:14px;color:#3a3d26;margin-bottom:10px}
+ul,ol{padding-left:1.3rem;margin-bottom:12px}
+li{font-size:14px;color:#3a3d26;margin-bottom:5px}
+code{font-family:'Courier New',monospace;font-size:12px;background:#eef1f5;border:1px solid var(--border);border-radius:3px;padding:1px 6px;color:#8b2e1e}
+.code-block{background:#1c2533;color:#a8d8b0;font-family:'Courier New',monospace;font-size:12px;border-radius:6px;padding:16px 18px;margin:10px 0;line-height:1.9;overflow-x:auto;white-space:pre}
+.note{background:#fff8e1;border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:11px 14px;margin:12px 0;font-size:13px;color:#5a4000}
+.warn{background:#fdf0f0;border-left:3px solid var(--red);border-radius:0 6px 6px 0;padding:11px 14px;margin:12px 0;font-size:13px;color:#6b1a1a}
+.card{background:var(--white);border:1px solid var(--border);border-radius:6px;padding:18px 22px;margin-bottom:14px}
+.card h3{margin-top:0}
+table{width:100%;border-collapse:collapse;font-size:13px;margin:12px 0;background:var(--white);border:1px solid var(--border);border-radius:6px;overflow:hidden}
+th{background:var(--olive);color:var(--cream);padding:9px 12px;text-align:left;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+td{padding:9px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--off)}
+.tag{display:inline-block;font-size:11px;font-weight:600;background:var(--olive);color:white;border-radius:3px;padding:1px 7px;vertical-align:middle;margin-left:5px}
+.tag.gold{background:var(--gold);color:var(--olive)}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Drame Brothers Home & Yard</h1>
+  <p>Website & email setup — maintenance guide</p>
+</div>
+
+<div class="wrap">
+
+<!-- ── HOW IT WORKS ──────────────────────────────────────────── -->
+<h2>How It Works</h2>
+<p>The website is a set of static HTML files hosted for free on GitHub Pages at <strong>dramebrothers.com</strong>. There is no database, no subscription platform, and no monthly fee. When a client submits a booking request or fills out the feedback form, the data is sent to a small Google Apps Script program which emails you the details.</p>
+
+<div class="card">
+  <h3>Booking request flow</h3>
+  <ol>
+    <li>Client fills out the estimate form at <code>dramebrothers.com/home-cleaning.html</code></li>
+    <li>Price updates live as they fill in room counts and options</li>
+    <li>Client checks "Ready to book" — contact and scheduling fields appear</li>
+    <li>Client clicks "Request Booking" — data is sent to the Apps Script</li>
+    <li>Apps Script sends you a booking alert email with all their details</li>
+  </ol>
+</div>
+
+<div class="card">
+  <h3>Feedback flow</h3>
+  <ol>
+    <li>You send the client the link: <code>dramebrothers.com/feedback.html</code></li>
+    <li>Client fills out the form and submits</li>
+    <li>Apps Script sends you a feedback summary email</li>
+  </ol>
+</div>
+
+<!-- ── FILE STRUCTURE ────────────────────────────────────────── -->
+<h2>What Each File Does</h2>
+<table>
+  <tr><th>File</th><th>Purpose</th><th>How often you edit it</th></tr>
+  <tr><td><code>config.js</code></td><td>All pricing values, business info, and the Apps Script URL. The single source of truth for anything that might change.</td><td>When pricing or contact info changes</td></tr>
+  <tr><td><code>components.js</code></td><td>Renders the shared navigation bar, topbar, and footer on every page. Pulls phone/email from config.js.</td><td>Rarely — only if site structure changes</td></tr>
+  <tr><td><code>style.css</code></td><td>All visual styling — colors, fonts, layout. The color palette is in the <code>:root</code> block at the top.</td><td>When you want visual changes</td></tr>
+  <tr><td><code>home-cleaning.html</code></td><td>The home cleaning estimate form. Pricing logic lives in the <code>calcPrice()</code> function. Reads all values from config.js.</td><td>When adding/removing form fields</td></tr>
+  <tr><td><code>small-business.html</code></td><td>Small business cleaning inquiry form (placeholder — no live pricing yet).</td><td>When building out full pricing for this service</td></tr>
+  <tr><td><code>yard-garden.html</code></td><td>Yard & garden inquiry form (placeholder).</td><td>When building out full pricing for this service</td></tr>
+  <tr><td><code>feedback.html</code></td><td>Client feedback form. Hidden from site navigation — share the direct link.</td><td>Rarely</td></tr>
+  <tr><td><code>index.html</code></td><td>The landing page — hero image, about section, service cards.</td><td>When updating about text or services</td></tr>
+  <tr><td><code>rates.html</code></td><td>Internal pricing reference page. All values rendered live from config.js — never needs manual editing.</td><td>Never — updates automatically</td></tr>
+  <tr><td><code>Code.gs</code></td><td>The Google Apps Script. Receives form data and sends emails. Lives in Google, not on GitHub.</td><td>When changing your email address or business name</td></tr>
+</table>
+
+<!-- ── MAKING CHANGES ────────────────────────────────────────── -->
+<h2>Making Common Changes</h2>
+
+<h3>Change the base rate (price per room point)</h3>
+<p>Open <code>config.js</code>. Find:</p>
+<div class="code-block">baseRate: 16,</div>
+<p>Change <code>16</code> to your new rate. Save and upload to GitHub.</p>
+
+<h3>Change an add-on price</h3>
+<p>Open <code>config.js</code>. Find the <code>addOns</code> array and change the <code>price</code> value for the relevant add-on:</p>
+<div class="code-block">addOns: [
+  { id: 'add_fridge',   label: 'Inside refrigerator cleaning', price: 25 },
+  { id: 'add_oven',     label: 'Inside oven cleaning',         price: 25 },  // ← change here
+  { id: 'add_cabinets', label: 'Inside cabinet cleaning',      price: 40 },
+  { id: 'add_dishes',   label: 'Dish washing',                 price: 20 }
+]</div>
+<p>Save and upload to GitHub. The form and rates page update automatically.</p>
+
+<h3>Add a new add-on service</h3>
+<p><strong>Step 1</strong> — Add an entry to the <code>addOns</code> array in <code>config.js</code>:</p>
+<div class="code-block">{ id: 'add_windows', label: 'Window cleaning (interior)', price: 45 }</div>
+<p><strong>Step 2</strong> — Add the new field to the booking email in <code>Code.gs</code>. Find the <code>addons</code> variable in <code>sendBookingEmail</code> and add a line:</p>
+<div class="code-block">d.addWindows === 'Yes' ? 'Window cleaning (+$45)' : null,</div>
+<p><strong>Step 3</strong> — Add the field to the submitted data in <code>home-cleaning.html</code>. Find the <code>data = {</code> block in <code>submitForm()</code> and add:</p>
+<div class="code-block">addWindows: gc('add_windows') ? 'Yes' : 'No',</div>
+<p>Redeploy Code.gs (new version), then upload config.js and home-cleaning.html to GitHub.</p>
+
+<h3>Change a percentage adjustment</h3>
+<p>Open <code>config.js</code>. All adjustments are in the middle section:</p>
+<div class="code-block">wholeHomeAdj: 0.10,      // Whole home surcharge — 0.10 = 10%
+
+occupancyAdj: [
+  { min: 7, max: Infinity, rate: 0.30 },  // 7+  residents: +30%
+  { min: 5, max: 6,        rate: 0.20 },  // 5–6 residents: +20%
+  { min: 3, max: 4,        rate: 0.10 }   // 3–4 residents: +10%
+],
+
+conditionAdj: {
+  'Light':   -0.10,   // -10%
+  'Average':  0.00,
+  'Heavy':    0.20    // +20%
+},
+
+deepCleanMultiplier: 1.5,   // 1.5 = 50% more for deep cleans
+
+recurringDiscounts: {
+  'Weekly Service':   0.15,   // 15% off
+  'Biweekly Service': 0.10,   // 10% off
+  'Monthly Service':  0.05    //  5% off
+}</div>
+<p>Change any value, save, and upload to GitHub.</p>
+
+<h3>Change room point values</h3>
+<p>Open <code>config.js</code>. Find <code>roomPoints</code>:</p>
+<div class="code-block">roomPoints: {
+  bedroom:       1.00,
+  full_bathroom: 2.00,
+  half_bathroom: 1.00,
+  kitchen:       3.00,
+  living_room:   2.00,
+  dining_room:   1.00,
+  basement:      1.50,
+  other_room:    1.00,
+  closet:        0.25
+}</div>
+<p>Change any value. Save and upload to GitHub.</p>
+
+<h3>Add a new room type</h3>
+<p><strong>Step 1</strong> — Add it to <code>roomPoints</code> in <code>config.js</code> with a unique key and point value:</p>
+<div class="code-block">sunroom: 1.50</div>
+<p><strong>Step 2</strong> — Add the input row to the room grid in <code>home-cleaning.html</code>. Find the <code>room-grid</code> div and add:</p>
+<div class="code-block">&lt;div class="room-row"&gt;&lt;div class="rl"&gt;Sunroom&lt;/div&gt;&lt;input type="number" id="sunroom" min="0" value="0"&gt;&lt;/div&gt;</div>
+<p>The <code>id</code> must exactly match the key you added in config.js. Save and upload both files.</p>
+
+<h3>Add a new question to the booking form</h3>
+<p>Open <code>home-cleaning.html</code>. Find the Phase 2 section (it starts after the "Ready to book" checkbox). Add a new field card — copy the Additional Notes card as a template and change the label, id, and placeholder. Then add the field to the <code>data</code> object in <code>submitForm()</code>:</p>
+<div class="code-block">myNewField: gv('my_field_id'),</div>
+<p>And add it to the email body in <code>Code.gs</code> so it shows up in the booking alert. Redeploy Code.gs, then upload home-cleaning.html.</p>
+
+<h3>Update contact info (phone or email)</h3>
+<p>Open <code>config.js</code> and update the <code>business</code> block:</p>
+<div class="code-block">business: {
+  phone:     '929-274-2102',
+  phoneHref: '9292742102',  // same number, digits only
+  email:     'drame.home.yard@gmail.com',
+  ...
+}</div>
+<p>Also update <code>YOUR_EMAIL</code> in <code>Code.gs</code> if the email changes, then redeploy Code.gs.</p>
+
+<h3>Update the About text</h3>
+<p>Open <code>index.html</code>. Find the about section and edit the paragraph text directly. Save and upload.</p>
+
+<h3>Change site colors</h3>
+<p>Open <code>style.css</code>. The entire palette is in the <code>:root</code> block at the very top — every color used on every page is defined there. Change any value and the whole site updates.</p>
+
+<!-- ── APPS SCRIPT ───────────────────────────────────────────── -->
+<h2>Apps Script — Setup & Redeployment</h2>
+
+<h3>Where it lives</h3>
+<p>The Apps Script is attached to any Google account you choose — it does not need to be attached to a spreadsheet. You can access it directly at <a href="https://script.google.com">script.google.com</a>.</p>
+
+<h3>Initial setup</h3>
+<ol>
+  <li>Go to <a href="https://script.google.com">script.google.com</a> → New Project</li>
+  <li>Name it (e.g. "Drame Brothers Email Handler")</li>
+  <li>Delete the default code and paste in your <code>Code.gs</code></li>
+  <li>Fill in <code>YOUR_EMAIL</code>, <code>BUSINESS_NAME</code>, and <code>BUSINESS_PHONE</code> at the top</li>
+  <li>Save (Ctrl+S / Cmd+S)</li>
+  <li>Click <strong>Deploy → New deployment</strong>
+    <ul>
+      <li>Type: Web app</li>
+      <li>Execute as: Me</li>
+      <li>Who has access: Anyone</li>
+    </ul>
+  </li>
+  <li>Click Deploy — copy the Web App URL</li>
+  <li>Paste the URL into <code>config.js</code> as the value of <code>scriptUrl</code></li>
+</ol>
+
+<h3>Redeploying after changes</h3>
+<p>Any time you change <code>Code.gs</code>, you must create a new deployment version or the live script continues running the old code.</p>
+<ol>
+  <li>Make your changes and save</li>
+  <li>Deploy → Manage deployments</li>
+  <li>Click the pencil (edit) icon on your active deployment</li>
+  <li>Change Version to <strong>New version</strong></li>
+  <li>Click Deploy</li>
+</ol>
+<div class="warn">The Web App URL stays the same between deployments — you do not need to update config.js when redeploying.</div>
+
+<h3>Testing</h3>
+<p>Two test functions are built into Code.gs. To run them: open the Apps Script editor → select the function from the dropdown → click Run.</p>
+<ul>
+  <li><code>testBookingEmail()</code> — sends a sample booking alert to YOUR_EMAIL</li>
+  <li><code>testFeedbackEmail()</code> — sends a sample feedback email to YOUR_EMAIL</li>
+</ul>
+<p>If a test function doesn't appear in the dropdown, it may be nested inside another function. Scroll to the bottom of Code.gs and make sure each function starts after the closing <code>}</code> of the one above it.</p>
+
+<!-- ── GITHUB / DEPLOYMENT ───────────────────────────────────── -->
+<h2>Updating the Website (GitHub)</h2>
+
+<h3>How to upload changes</h3>
+<ol>
+  <li>Go to your GitHub repository</li>
+  <li>Click the file you want to update</li>
+  <li>Click the pencil (edit) icon in the top right</li>
+  <li>Make your changes — or click the upload icon to replace the file</li>
+  <li>Scroll down and click <strong>Commit changes</strong></li>
+  <li>The live site updates within about 30 seconds</li>
+</ol>
+<div class="note">For most pricing changes, you only need to upload <code>config.js</code>. For layout or copy changes, upload the specific HTML file. You rarely need to upload multiple files at once.</div>
+
+<h3>Uploading multiple files</h3>
+<p>If you have several files to update at once: in the repository, click <strong>Add file → Upload files</strong>, drag all the files in at once, and commit.</p>
+
+<h3>Checking that changes went live</h3>
+<p>After committing, wait 30 seconds, then hard-refresh the page in your browser (<strong>Cmd+Shift+R</strong> on Mac, <strong>Ctrl+Shift+R</strong> on Windows) to bypass the cache and see the latest version.</p>
+
+<!-- ── CUSTOM DOMAIN ─────────────────────────────────────────── -->
+<h2>Domain & Hosting</h2>
+<table>
+  <tr><th>What</th><th>Where</th><th>Cost</th></tr>
+  <tr><td>Website files</td><td>GitHub Pages (github.com)</td><td>Free</td></tr>
+  <tr><td>Custom domain</td><td>Namecheap (dramebrothers.com)</td><td>~$12/year</td></tr>
+  <tr><td>Email handling</td><td>Google Apps Script (script.google.com)</td><td>Free</td></tr>
+</table>
+
+<h3>If you need to reconnect the domain</h3>
+<p>If the domain ever stops resolving: log in to Namecheap → Advanced DNS → confirm these four A records are present:</p>
+<div class="code-block">A  @  185.199.108.153
+A  @  185.199.109.153
+A  @  185.199.110.153
+A  @  185.199.111.153</div>
+<p>And this CNAME:</p>
+<div class="code-block">CNAME  www  drame-brothers.github.io.</div>
+<p>In GitHub: Settings → Pages → confirm the custom domain is set to <code>dramebrothers.com</code> and Enforce HTTPS is checked.</p>
+
+<!-- ── PRICING FORMULA ───────────────────────────────────────── -->
+<h2>How the Pricing Formula Works</h2>
+<p>The estimate is calculated entirely in the client's browser using the values in <code>config.js</code>. Here's the sequence:</p>
+<ol>
+  <li><strong>Room points</strong> — each room type has a point value. Multiply quantity by points for each room, sum them all up.</li>
+  <li><strong>Base price</strong> — total points × base rate ($16)</li>
+  <li><strong>Combined adjustment</strong> — add up the scope adjustment (whole home: +10%), occupancy adjustment (based on residents), and condition adjustment (Light: −10%, Average: 0%, Heavy: +20%). Apply as a single multiplier to the base price.</li>
+  <li><strong>Deep clean multiplier</strong> — for First-Time and One-Time Deep Clean, multiply by 1.5×</li>
+  <li><strong>Recurring discount</strong> — for Weekly/Biweekly/Monthly, subtract the discount percentage</li>
+  <li><strong>Flat fees</strong> — add pet surcharge ($20) if pets, then add any selected add-ons</li>
+</ol>
+<div class="note">The formula in <code>calcPrice()</code> in <code>home-cleaning.html</code> reads all values from <code>config.js</code>. You should never need to touch the formula itself — only the values in config.js.</div>
+
+<h3>Current values at a glance</h3>
+<p>The rates page at <code>dramebrothers.com/rates.html</code> always shows the current values pulled live from config.js. Bookmark it or share it with clients who ask for a breakdown.</p>
+
+</div>
+</body>
+</html>

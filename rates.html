@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Current Rates — Drame Brothers Home & Yard</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+body { background: var(--off); }
+.rates-wrap { max-width: 720px; margin: 0 auto; padding: 36px 20px 60px; }
+.rates-intro { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; margin-bottom: 28px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+.rates-intro strong { color: var(--text); }
+.section-block { margin-bottom: 28px; }
+.section-block h2 { font-family: var(--sans); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+table { width: 100%; border-collapse: collapse; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; font-size: 14px; }
+th { background: var(--olive); color: var(--cream); padding: 10px 14px; text-align: left; font-size: 11px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+td { padding: 10px 14px; border-bottom: 1px solid var(--border); color: var(--text); }
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: var(--off); }
+.val { font-weight: 600; color: var(--olive); text-align: right; }
+.note { font-size: 12px; color: var(--muted); margin-top: 8px; font-style: italic; }
+.formula-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 22px; font-size: 13px; color: var(--text); line-height: 2; }
+.formula-box .step { display: flex; align-items: baseline; gap: 10px; padding: 4px 0; border-bottom: 1px solid var(--border-lt, #eee); }
+.formula-box .step:last-child { border-bottom: none; }
+.step-num { font-size: 11px; font-weight: 700; color: var(--olive-lt); min-width: 52px; }
+.step-desc { flex: 1; }
+.updated { font-size: 12px; color: var(--muted); text-align: right; margin-top: 32px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div id="site-header"></div>
+
+<div class="rates-wrap">
+
+  <div class="rates-intro">
+    <strong>Internal reference — not linked publicly.</strong> All values on this page are pulled live from <code>config.js</code>. If you update a rate in <code>config.js</code>, this page reflects the change immediately — no edits needed here. Share this URL with clients who ask for a pricing breakdown.
+  </div>
+
+  <!-- Pricing Formula -->
+  <div class="section-block">
+    <h2>How Estimates Are Calculated</h2>
+    <div class="formula-box" id="formula-steps">
+      <div class="step"><span class="step-num">Step 1</span><span class="step-desc">Count room points (each room type is worth a set number of points)</span></div>
+      <div class="step"><span class="step-num">Step 2</span><span class="step-desc">Multiply total points × base rate to get the raw base price</span></div>
+      <div class="step"><span class="step-num">Step 3</span><span class="step-desc">Apply percentage adjustments (scope + occupancy + condition)</span></div>
+      <div class="step"><span class="step-num">Step 4</span><span class="step-desc">Apply deep clean multiplier (first-time and one-time cleans only)</span></div>
+      <div class="step"><span class="step-num">Step 5</span><span class="step-desc">Apply recurring service discount (weekly, biweekly, or monthly)</span></div>
+      <div class="step"><span class="step-num">Step 6</span><span class="step-desc">Add flat fees: pet surcharge and any selected add-ons</span></div>
+    </div>
+  </div>
+
+  <!-- Base Rate -->
+  <div class="section-block">
+    <h2>Base Rate</h2>
+    <table>
+      <tr><th>Setting</th><th class="val">Current Value</th></tr>
+      <tr><td>Rate per room point</td><td class="val" id="base-rate-cell">—</td></tr>
+    </table>
+  </div>
+
+  <!-- Room Points -->
+  <div class="section-block">
+    <h2>Room Point Values</h2>
+    <table>
+      <tr><th>Room Type</th><th class="val">Points</th><th class="val">Value at Current Rate</th></tr>
+      <tbody id="room-points-body"></tbody>
+    </table>
+    <p class="note">Points represent the relative time and effort each room requires. Total points × base rate = raw base price before adjustments.</p>
+  </div>
+
+  <!-- Adjustments -->
+  <div class="section-block">
+    <h2>Percentage Adjustments</h2>
+    <table>
+      <tr><th>Factor</th><th>Condition</th><th class="val">Adjustment</th></tr>
+      <tbody id="adjustments-body"></tbody>
+    </table>
+    <p class="note">All three adjustments (scope, occupancy, condition) are added together and applied as a single combined multiplier.</p>
+  </div>
+
+  <!-- Deep Clean & Discounts -->
+  <div class="section-block">
+    <h2>Multipliers & Discounts</h2>
+    <table>
+      <tr><th>Service Type</th><th class="val">Multiplier / Discount</th></tr>
+      <tbody id="multipliers-body"></tbody>
+    </table>
+  </div>
+
+  <!-- Flat Fees -->
+  <div class="section-block">
+    <h2>Flat Fees</h2>
+    <table>
+      <tr><th>Fee</th><th class="val">Amount</th></tr>
+      <tr><td>Pet surcharge (when pets: Yes)</td><td class="val" id="pet-fee-cell">—</td></tr>
+    </table>
+  </div>
+
+  <!-- Add-Ons -->
+  <div class="section-block">
+    <h2>Add-On Services</h2>
+    <table>
+      <tr><th>Add-On</th><th class="val">Price</th></tr>
+      <tbody id="addons-body"></tbody>
+    </table>
+  </div>
+
+  <div class="updated" id="updated-line"></div>
+
+</div>
+
+<div id="site-footer"></div>
+
+<script src="config.js"></script>
+<script src="components.js"></script>
+<script>
+renderTopbar('site-header', { heroTitle: 'Current Rates', heroSubtitle: 'Internal reference — all values reflect config.js.' });
+renderFooter('site-footer');
+
+var fmt = function(n) { return '$' + parseFloat(n).toFixed(2); };
+var pct = function(n) { return (n >= 0 ? '+' : '') + (n * 100).toFixed(0) + '%'; };
+
+// Base rate
+document.getElementById('base-rate-cell').textContent = fmt(DB.baseRate) + ' per point';
+
+// Room points
+var roomLabels = {
+  bedroom: 'Bedroom', full_bathroom: 'Full Bathroom', half_bathroom: 'Half Bathroom',
+  kitchen: 'Kitchen', living_room: 'Living Room', dining_room: 'Dining Room',
+  basement: 'Basement', other_room: 'Other Room', closet: 'Closet'
+};
+var rpBody = document.getElementById('room-points-body');
+Object.keys(DB.roomPoints).forEach(function(key) {
+  var pts = DB.roomPoints[key];
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td>' + (roomLabels[key] || key) + '</td>' +
+    '<td class="val">' + pts.toFixed(2) + ' pts</td>' +
+    '<td class="val">' + fmt(pts * DB.baseRate) + '</td>';
+  rpBody.appendChild(tr);
+});
+
+// Adjustments
+var adjBody = document.getElementById('adjustments-body');
+function addAdj(factor, condition, rate) {
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td>' + factor + '</td><td>' + condition + '</td><td class="val">' + pct(rate) + '</td>';
+  adjBody.appendChild(tr);
+}
+addAdj('Cleaning Scope', 'Whole Home', DB.wholeHomeAdj);
+addAdj('Cleaning Scope', 'Partial Home', 0);
+DB.occupancyAdj.forEach(function(tier) {
+  var label = tier.max === Infinity ? tier.min + '+ residents' : tier.min + '–' + tier.max + ' residents';
+  addAdj('Occupancy', label, tier.rate);
+});
+addAdj('Occupancy', '1–2 residents', 0);
+Object.keys(DB.conditionAdj).forEach(function(cond) {
+  addAdj('Home Condition', cond, DB.conditionAdj[cond]);
+});
+
+// Multipliers & discounts
+var mBody = document.getElementById('multipliers-body');
+DB.deepCleanServices.forEach(function(svc) {
+  var tr = document.createElement('tr');
+  var short = svc.split('(')[0].trim();
+  tr.innerHTML = '<td>' + short + '</td><td class="val">' + DB.deepCleanMultiplier + '× (deep clean)</td>';
+  mBody.appendChild(tr);
+});
+Object.keys(DB.recurringDiscounts).forEach(function(svc) {
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td>' + svc + '</td><td class="val">−' + (DB.recurringDiscounts[svc] * 100).toFixed(0) + '% discount</td>';
+  mBody.appendChild(tr);
+});
+['One-Time Deep Clean','Biweekly Service','Monthly Service'].forEach(function(){}); // already covered above
+
+// Pet fee
+document.getElementById('pet-fee-cell').textContent = fmt(DB.petFee);
+
+// Add-ons
+var aBody = document.getElementById('addons-body');
+DB.addOns.forEach(function(a) {
+  var tr = document.createElement('tr');
+  tr.innerHTML = '<td>' + a.label + '</td><td class="val">+' + fmt(a.price) + '</td>';
+  aBody.appendChild(tr);
+});
+
+// Updated timestamp
+document.getElementById('updated-line').textContent =
+  'Page generated: ' + new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'});
+</script>
+</body>
+</html>

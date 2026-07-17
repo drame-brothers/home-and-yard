@@ -11,190 +11,62 @@
 </head>
 <body>
 
-<!-- ── Topbar ─────────────────────────────────────── -->
-<header>
-  <div class="topbar">
-    <a href="index.html" class="topbar-logo">Drame Brothers Home &amp; Yard</a>
-    <a href="index.html" class="topbar-back">← Back to Home</a>
-  </div>
-  <div class="page-hero">
-    <h1>Small Business Cleaning</h1>
-    <p>Offices, studios, storefronts, and more — tell us about your space.</p>
-    <div class="phone-line">Prefer to talk? Call <a href="tel:9292742102">929-274-2102</a>.</div>
-  </div>
-</header>
+<div id="site-header"></div>
 
-<!-- ── Inquiry form ───────────────────────────────── -->
 <div class="inquiry-wrap">
-
   <div id="inquiry-form">
     <div class="inquiry-card">
       <h2>Get in Touch</h2>
-      <p class="sub">We're building out a full estimate tool for this service. In the meantime, share a few details and we'll follow up with a quote within 1 business day.</p>
-
-      <div class="coming-soon-note">
-        ✦ Full online estimate coming soon. For now, we'll reach out personally based on what you share below.
-      </div>
-
+      <p class="sub">Please share a few details and we'll contact you with a quote within one business day.</p>
+      <div class="coming-soon-note">✦ Full online estimate coming soon. For now, we'll reach out personally based on what you share below.</div>
       <div class="two-col">
-        <div class="ifield">
-          <label for="client_name">Full Name <span style="color:var(--red)">*</span></label>
-          <input type="text" id="client_name" placeholder="First and last name">
-        </div>
-        <div class="ifield">
-          <label for="phone">Phone Number <span style="color:var(--red)">*</span></label>
-          <input type="tel" id="phone" placeholder="(555) 555-5555">
-        </div>
+        <div class="ifield"><label for="client_name">Full Name <span style="color:var(--red)">*</span></label><input type="text" id="client_name" placeholder="First and last name"></div>
+        <div class="ifield"><label for="phone">Phone Number <span style="color:var(--red)">*</span></label><input type="tel" id="phone" placeholder="(555) 555-5555"></div>
       </div>
-
-      <div class="ifield">
-        <label for="email">Email Address <span style="color:var(--red)">*</span></label>
-        <input type="email" id="email" placeholder="your@email.com">
-      </div>
-
-      <div class="ifield">
-        <label for="business_name">Business Name</label>
-        <input type="text" id="business_name" placeholder="Your business name">
-      </div>
-
-      <div class="ifield">
-        <label for="address">Business Address <span style="color:var(--red)">*</span></label>
-        <input type="text" id="address" placeholder="Street address, City, State, ZIP">
-      </div>
-
-      <div class="ifield">
-        <label for="space_type">Type of Space</label>
-        <select id="space_type">
-          <option value="">Select a space type…</option>
-          <option>Office</option>
-          <option>Retail / Storefront</option>
-          <option>Studio or Workshop</option>
-          <option>Restaurant or Food Service</option>
-          <option>Salon or Spa</option>
-          <option>Medical or Professional Office</option>
-          <option>Other</option>
-        </select>
-      </div>
-
-      <div class="ifield">
-        <label for="frequency">How often would you need cleaning?</label>
-        <select id="frequency">
-          <option value="">Select frequency…</option>
-          <option>One-time / Deep Clean</option>
-          <option>Weekly</option>
-          <option>Biweekly</option>
-          <option>Monthly</option>
-          <option>Not sure yet</option>
-        </select>
-      </div>
-
-      <div class="ifield">
-        <label for="sq_footage">Approximate square footage</label>
-        <input type="text" id="sq_footage" placeholder="e.g. 800 sq ft">
-      </div>
-
-      <div class="ifield">
-        <label for="notes">Tell us about your space and what you need</label>
-        <textarea id="notes" rows="5" placeholder="Number of rooms or areas, any specific concerns, preferred schedule, or anything else that would help us give you an accurate quote."></textarea>
-      </div>
-
+      <div class="ifield"><label for="email">Email Address <span style="color:var(--red)">*</span></label><input type="email" id="email" placeholder="your@email.com"></div>
+      <div class="ifield"><label for="business_name">Business Name</label><input type="text" id="business_name" placeholder="Your business name"></div>
+      <div class="ifield"><label for="address">Business Address <span style="color:var(--red)">*</span></label><input type="text" id="address" placeholder="Street address, City, State, ZIP"></div>
+      <div class="ifield"><label for="space_type">Type of Space</label><select id="space_type"><option value="">Select a space type…</option><option>Office</option><option>Retail / Storefront</option><option>Studio or Workshop</option><option>Restaurant or Food Service</option><option>Salon or Spa</option><option>Medical or Professional Office</option><option>Other</option></select></div>
+      <div class="ifield"><label for="frequency">How often would you need cleaning?</label><select id="frequency"><option value="">Select frequency…</option><option>One-time / Deep Clean</option><option>Weekly</option><option>Biweekly</option><option>Monthly</option><option>Not sure yet</option></select></div>
+      <div class="ifield"><label for="sq_footage">Approximate square footage</label><input type="text" id="sq_footage" placeholder="e.g. 800 sq ft"></div>
+      <div class="ifield"><label for="notes">Tell us about your space and what you need</label><textarea id="notes" rows="5" placeholder="Number of rooms or areas, any specific concerns, preferred schedule, or anything else that would help us give you an accurate quote."></textarea></div>
       <button class="ibtn" id="submit-btn" onclick="submitForm()">Send Inquiry →</button>
     </div>
   </div>
-
   <div class="success-screen" id="success">
     <div class="success-icon">✓</div>
     <h2>We got your message!</h2>
     <p>Thanks for reaching out. We'll follow up with a quote within 1 business day.</p>
-    <p style="margin-top:16px; font-size:13px; color:var(--muted);">In a hurry? Call us directly at <a href="tel:9292742102" style="color:var(--olive); font-weight:500;">929-274-2102</a>.</p>
+    <p style="margin-top:16px;font-size:13px;color:var(--muted);">In a hurry? Call us directly at <a id="success-phone" style="color:var(--olive);font-weight:500;"></a>.</p>
   </div>
+</div>
 
-</div><!-- /inquiry-wrap -->
+<div id="site-footer"></div>
 
-<!-- ── Footer ─────────────────────────────────────── -->
-<footer class="footer">
-  <div class="footer-inner">
-    <div>
-      <h3>Drame Brothers<br>Home &amp; Yard</h3>
-      <p class="footer-tagline">West Philadelphia &amp; surrounding areas</p>
-    </div>
-    <div class="footer-contact">
-      <h4>Contact Us</h4>
-      <p><a href="mailto:drame.home.yard@gmail.com">drame.home.yard@gmail.com</a></p>
-      <p><a href="tel:9292742102">929-274-2102</a></p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© <span id="yr"></span> Drame Brothers Home &amp; Yard</span>
-    <span>West Philadelphia, PA</span>
-  </div>
-</footer>
-
+<script src="config.js"></script>
+<script src="components.js"></script>
 <script>
-document.getElementById('yr').textContent = new Date().getFullYear();
+renderTopbar('site-header',{heroTitle:'Small Business Cleaning',heroSubtitle:'Offices, studios, storefronts, and more — tell us about your space.',showPhone:true});
+renderFooter('site-footer');
+document.getElementById('success-phone').textContent = DB.business.phone;
+document.getElementById('success-phone').href = 'tel:' + DB.business.phoneHref;
 
-// ── CONFIGURATION ──────────────────────────────────
-// Same Apps Script URL as the home cleaning form
-var SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
-
-function gv(id) { var e = document.getElementById(id); return e ? e.value.trim() : ''; }
-
-function validate() {
-  document.querySelectorAll('.field-error').forEach(function(e) { e.remove(); });
-  document.querySelectorAll('.err').forEach(function(e) { e.classList.remove('err'); });
-  var ok = true;
-  ['client_name','phone','email','address'].forEach(function(id) {
-    var el = document.getElementById(id);
-    if (el && !el.value.trim()) {
-      el.classList.add('err');
-      var msg = document.createElement('div');
-      msg.className = 'field-error';
-      msg.textContent = 'This field is required.';
-      el.parentNode.insertBefore(msg, el.nextSibling);
-      ok = false;
-    }
+function gv(id){var e=document.getElementById(id);return e?e.value.trim():'';}
+function validate(){
+  document.querySelectorAll('.field-error').forEach(function(e){e.remove();});
+  document.querySelectorAll('.err').forEach(function(e){e.classList.remove('err');});
+  var ok=true;
+  ['client_name','phone','email','address'].forEach(function(id){
+    var el=document.getElementById(id);
+    if(el&&!el.value.trim()){el.classList.add('err');var m=document.createElement('div');m.className='field-error';m.textContent='This field is required.';el.parentNode.insertBefore(m,el.nextSibling);ok=false;}
   });
   return ok;
 }
-
-function submitForm() {
-  if (!validate()) return;
-  var btn = document.getElementById('submit-btn');
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  var data = {
-    submissionDate: new Date().toLocaleString(),
-    serviceType:    'Small Business Cleaning Inquiry',
-    cleaningScope:  gv('space_type'),
-    clientName:     gv('client_name'),
-    phone:          gv('phone'),
-    email:          gv('email'),
-    address:        gv('address'),
-    businessName:   gv('business_name'),
-    frequency:      gv('frequency'),
-    sqFootage:      gv('sq_footage'),
-    notes:          gv('notes'),
-    readyToBook:    'Yes',
-    estimatedPrice: 'TBD — inquiry form',
-    // Fill remaining expected columns with blanks
-    bedrooms: 0, fullBathrooms: 0, halfBathrooms: 0, kitchen: 0,
-    livingRoom: 0, diningRoom: 0, basement: 0, otherRoom: 0,
-    closet: 0, hallway: 0, residents: '', pets: '', condition: '',
-    addFridge: 'No', addOven: 'No', addCabinets: 'No', addDishes: 'No',
-    productPreference: '', appt1Day: '', appt1Time: '',
-    appt2Day: '', appt2Time: '', appt3Day: '', appt3Time: ''
-  };
-
-  fetch(SCRIPT_URL, {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-  }).catch(function(){}).finally(function() {
-    document.getElementById('inquiry-form').style.display = 'none';
-    document.getElementById('success').classList.add('show');
-  });
+function submitForm(){
+  if(!validate())return;
+  var btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Sending…';
+  var data={submissionDate:new Date().toLocaleString(),serviceType:'Small Business Cleaning Inquiry',cleaningScope:gv('space_type'),clientName:gv('client_name'),phone:gv('phone'),email:gv('email'),address:gv('address'),businessName:gv('business_name'),frequency:gv('frequency'),sqFootage:gv('sq_footage'),notes:gv('notes'),readyToBook:'Yes',estimatedPrice:'TBD — inquiry form',bedrooms:0,fullBathrooms:0,halfBathrooms:0,kitchen:0,livingRoom:0,diningRoom:0,basement:0,otherRoom:0,closet:0,hallway:0,residents:'',pets:'',condition:'',addFridge:'No',addOven:'No',addCabinets:'No',addDishes:'No',productPreference:'',appt1Day:'',appt1Time:'',appt2Day:'',appt2Time:'',appt3Day:'',appt3Time:''};
+  fetch(DB.scriptUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)}).catch(function(){}).finally(function(){document.getElementById('inquiry-form').style.display='none';document.getElementById('success').classList.add('show');});
 }
 </script>
 </body>
