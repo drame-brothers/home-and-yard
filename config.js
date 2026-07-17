@@ -106,7 +106,7 @@ var DB = {
 
 	// ── Pet Surcharge ────────────────────────────────────────────
 	// Flat dollar amount added when pets are present.
-	petFee: 20,
+	petFee: 1.10,   // multiplier — 1.10 = 10% surcharge
 
 	// ── Add-On Services ──────────────────────────────────────────
 	// Each entry renders as a checkbox on the estimate form
@@ -117,7 +117,7 @@ var DB = {
 	addOns: [
 		{ id: 'add_fridge', label: 'Inside refrigerator cleaning', price: 25 },
 		{ id: 'add_oven', label: 'Inside oven cleaning', price: 25 },
-		{ id: 'add_cabinets', label: 'Inside cabinet cleaning', price: 40 },
+		{ id: 'add_cabinets', label: 'Inside cabinet cleaning', price: 30 },
 		{ id: 'add_dishes', label: 'Dish washing', price: 20 }
   ]
 
