@@ -107,8 +107,8 @@ p:last-child { margin-bottom: 0; }
 /* ── Hero ──────────────────────────────────────────── */
 .hero {
   position: relative;
-  height: 42vh;
-  min-height: 320px;
+  height: 62vh;
+  min-height: 400px;
   display: flex;
   align-items: center;
   justify-content: center;
