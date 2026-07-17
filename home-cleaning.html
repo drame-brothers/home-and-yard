@@ -263,7 +263,7 @@ function calcPrice(){
   var price=base*(1+scopeAdj+occAdj+condAdj);
   price*=(DB.deepCleanServices.indexOf(svc)!==-1)?DB.deepCleanMultiplier:1.0;
   price*=(1-(DB.recurringDiscounts[svc]||0));
-  if(gr('pets')==='Yes')price+=DB.petFee;
+  if(gr('pets')==='Yes')price*=DB.petFee;
   DB.addOns.forEach(function(a){if(gc(a.id))price+=a.price;});
   return Math.round(price*100)/100;
 }
