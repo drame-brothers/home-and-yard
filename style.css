@@ -115,7 +115,6 @@ p:last-child { margin-bottom: 0; }
   background: var(--olive);   /* fallback while image loads */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   overflow: hidden;
 }
 .hero-overlay {
