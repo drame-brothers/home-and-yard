@@ -524,3 +524,9 @@ p:last-child { margin-bottom: 0; }
   .inquiry-card { padding: 24px 20px; }
   .page-hero { padding: 40px 20px 36px; }
 }
+@media (min-width: 769px) {
+  .hero {
+    height: 80vh;
+    min-height: 560px;
+  }
+}
