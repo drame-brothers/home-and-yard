@@ -49,7 +49,7 @@ var DB = {
 	// ── Base Rate ────────────────────────────────────────────────
 	// Dollar value per room point. Changing this single number
 	// adjusts all quotes proportionally.
-	baseRate: 16,
+	baseRate: 15,
 
 	// ── Room Points ──────────────────────────────────────────────
 	// Each room type is worth this many points.
